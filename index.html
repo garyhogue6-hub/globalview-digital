@@ -9,7 +9,6 @@
 
         :root {
             --bg-dark: #0a0a0a;
-            --bg-card: #151515;
             --sea-blue: #006994;
             --cyan-glow: #00e5ff;
             --text-main: #f8f9fa;
@@ -24,12 +23,82 @@
             color: var(--text-main); 
             line-height: 1.6; 
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* GLASSMORPHISM HEADER */
+        /* AMBIENT BACKGROUND & GRID - Puni prazan prostor sa strane */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .glow-left, .glow-right {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glow-left {
+            top: 20%; left: -15vw;
+            width: 40vw; height: 40vw;
+            background: var(--sea-blue);
+            opacity: 0.3;
+        }
+        .glow-right {
+            bottom: 10%; right: -10vw;
+            width: 30vw; height: 30vw;
+            background: var(--cyan-glow);
+            opacity: 0.15;
+        }
+
+        /* FLOATING SIDE ELEMENTS */
+        .side-text-left {
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .side-scroll-right {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.5;
+        }
+        .side-scroll-right span {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            writing-mode: vertical-rl;
+        }
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--cyan-glow), transparent);
+        }
+
+        /* GLASSMORPHISM HEADER & BIGGER LOGO */
         header { 
-            background: rgba(10, 10, 10, 0.8); 
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.6); 
+            backdrop-filter: blur(15px);
             padding: 25px 50px; 
             display: flex;
             justify-content: space-between;
@@ -42,13 +111,14 @@
         
         .logo { 
             font-family: 'Montserrat', sans-serif; 
-            font-size: 1.8rem; 
+            font-size: 2.6rem; /* Znatno povećano */
             font-weight: 900; 
             text-transform: uppercase; 
-            letter-spacing: 3px; 
-            background: linear-gradient(90deg, var(--text-main), var(--cyan-glow));
+            letter-spacing: 4px; 
+            background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(0, 229, 255, 0.4); /* Neonski odsjaj */
         }
 
         nav { display: flex; gap: 40px; }
@@ -57,16 +127,19 @@
             text-decoration: none; 
             font-weight: 600; 
             text-transform: uppercase; 
-            font-size: 0.85rem; 
+            font-size: 0.9rem; 
             letter-spacing: 2px; 
-            transition: color 0.3s; 
+            transition: color 0.3s, text-shadow 0.3s; 
         }
-        nav a:hover { color: var(--cyan-glow); }
+        nav a:hover { 
+            color: var(--cyan-glow); 
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
 
         /* HERO SECTION */
         .hero { 
             position: relative;
-            padding: 150px 20px 100px; 
+            padding: 160px 20px 100px; 
             max-width: 1200px; 
             margin: 0 auto;
             text-align: center;
@@ -74,22 +147,22 @@
 
         .hero h1 { 
             font-family: 'Montserrat', sans-serif; 
-            font-size: 4.5rem; 
+            font-size: 5rem; 
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
         
         .hero h1 span {
             color: var(--cyan-glow);
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+            text-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
         }
 
         .hero p { 
-            font-size: 1.2rem; 
+            font-size: 1.25rem; 
             color: var(--text-muted); 
-            max-width: 700px; 
+            max-width: 750px; 
             margin: 0 auto 40px auto; 
         }
 
@@ -97,18 +170,18 @@
             display: inline-block; 
             background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); 
             color: #000; 
-            padding: 18px 40px; 
+            padding: 18px 45px; 
             text-decoration: none; 
             border-radius: 50px; 
             font-weight: 700; 
-            font-size: 1rem; 
+            font-size: 1.05rem; 
             text-transform: uppercase; 
             letter-spacing: 1.5px; 
             transition: transform 0.3s, box-shadow 0.3s; 
         }
         .btn:hover { 
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3);
         }
 
         /* THE EDITING PROCESS & TIMELINE */
@@ -124,8 +197,9 @@
 
         .process-text h2 {
             font-family: 'Montserrat', sans-serif; 
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .process-text p {
@@ -136,20 +210,21 @@
 
         /* CUSTOM CSS TIMELINE UI */
         .timeline-ui {
-            background: #111;
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 12px;
-            border: 1px solid #222;
+            border: 1px solid rgba(255,255,255,0.05);
             padding: 20px;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             overflow: hidden;
         }
 
         .timeline-header {
             display: flex;
             justify-content: space-between;
-            color: #555;
-            font-size: 0.7rem;
+            color: #666;
+            font-size: 0.75rem;
             margin-bottom: 15px;
             font-weight: bold;
         }
@@ -162,6 +237,7 @@
             width: 2px;
             background: #ff2a2a;
             z-index: 10;
+            box-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
         }
         .playhead::before {
             content: '';
@@ -177,16 +253,17 @@
 
         .track {
             height: 40px;
-            background: #1a1a1a;
+            background: rgba(26, 26, 26, 0.6);
             margin-bottom: 8px;
             border-radius: 4px;
             position: relative;
+            border: 1px solid rgba(255,255,255,0.02);
         }
 
         .clip {
             position: absolute;
             height: 30px;
-            top: 5px;
+            top: 4px;
             border-radius: 4px;
             display: flex;
             align-items: center;
@@ -194,106 +271,7 @@
             font-size: 0.7rem;
             font-weight: 600;
             color: #fff;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
         }
 
-        .clip.v1 { background: linear-gradient(90deg, #005f73, #0a9396); left: 5%; width: 45%; }
-        .clip.v2 { background: linear-gradient(90deg, #9b2226, #bb3e03); left: 25%; width: 25%; z-index: 2;}
-        .clip.a1 { background: linear-gradient(90deg, #2d6a4f, #40916c); left: 5%; width: 45%; }
-        .clip.a2 { background: linear-gradient(90deg, #5a189a, #7b2cbf); left: 60%; width: 30%; }
-
-        /* SHOWCASE IMAGE */
-        .showcase {
-            width: 100%;
-            height: 400px;
-            background: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            border-radius: 20px;
-            margin: 50px auto;
-            max-width: 1200px;
-            border: 1px solid #222;
-            position: relative;
-        }
-
-        .showcase-overlay {
-            position: absolute;
-            top:0; left:0; right:0; bottom:0;
-            background: linear-gradient(to top, var(--bg-dark), transparent);
-            border-radius: 20px;
-        }
-
-        /* FOOTER */
-        footer { 
-            border-top: 1px solid #222;
-            text-align: center; 
-            padding: 40px 20px; 
-            margin-top: 80px; 
-            color: var(--text-muted);
-        }
-        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem;}
-        footer a:hover { color: var(--cyan-glow); }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">GlobalView Digital</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Attention is the <br><span>New Currency</span></h1>
-        <p>We craft high-retention, visually stunning short-form content. From raw footage to viral masterpieces, we build digital assets that scale your brand and dominate the feed.</p>
-        <a href="pricing.html" class="btn">View Packages</a>
-    </section>
-
-    <section class="process-section">
-        <div class="process-text">
-            <h2>Engineered for Retention</h2>
-            <p>We don't just cut clips. We strategically pace every frame. Dynamic zoom-ins, seamless J-cuts, motion graphics, and elite sound design are layered to keep eyes glued to the screen.</p>
-            <p>Our editing pipeline is built for speed without compromising cinematic quality. Drop your footage in, and watch us turn it into gold.</p>
-        </div>
-        
-        <div class="timeline-ui">
-            <div class="timeline-header">
-                <span>00:00:00:00</span>
-                <span>00:00:15:00</span>
-                <span>00:00:30:00</span>
-                <span>00:00:45:00</span>
-            </div>
-            <div class="playhead"></div>
-            
-            <div class="track">
-                <div class="clip v2">B-Roll / VFX</div>
-            </div>
-            <div class="track">
-                <div class="clip v1">A-Roll (Main Camera)</div>
-            </div>
-            
-            <div class="track">
-                <div class="clip a1">Dialogue / Voiceover</div>
-                <div class="clip a2">SFX</div>
-            </div>
-            <div class="track" style="height: 25px;">
-                <div class="clip a1" style="background: #222; border: 1px solid #444; width: 85%;">Music Track (Waveform)</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="showcase">
-        <div class="showcase-overlay"></div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 15px;">
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Privacy Policy</a>
-        </p>
-    </footer>
-
-</body>
-</html>
+        .clip.v1 { background: linear-gradient(90deg, #005f73, #0a9396); left: 5%; width:
