@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy | GlobalView Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+        :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        
+        header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav { display: flex; gap: 30px; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s; }
+        nav a:hover { color: var(--cyan-glow); }
+
+        .legal-content { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+        .legal-content h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: var(--cyan-glow); margin-bottom: 20px; text-transform: uppercase; }
+        .legal-content p.date { color: var(--text-muted); margin-bottom: 40px; font-size: 0.9rem; }
+        .legal-content h2 { font-size: 1.5rem; color: var(--text-main); margin-top: 40px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .legal-content p, .legal-content ul { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
+        .legal-content ul { padding-left: 20px; }
+        .legal-content ul li { margin-bottom: 10px; }
+        .legal-content strong { color: var(--text-main); }
+
+        footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); }
+        .payment-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; }
+        footer a:hover { color: var(--cyan-glow); }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 15px; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            .legal-content h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GlobalView Digital</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="legal-content">
+        <h1>Refund & Cancellation Policy</h1>
+        <p class="date">Last Updated: April 17, 2026</p>
+
+        <h2>1. General Policy: All Sales Are Final</h2>
+        <p>Due to the custom and digital nature of video editing services, <strong>all sales are final, and we do not offer refunds</strong> once the editing process has begun. When you purchase a package, you are reserving our team's time and expertise, which cannot be recovered.</p>
+
+        <h2>2. Revisions Instead of Refunds</h2>
+        <p>We are fully committed to your satisfaction. Instead of issuing refunds, we provide a structured revision process (as outlined in your selected package). If the final delivery does not meet your initial project requirements, our team will utilize your included revisions to adjust pacing, cuts, graphics, and sound design until the video aligns with the agreed-upon vision.</p>
+
+        <h2>3. Cancellations Prior to Work Commencing</h2>
+        <p>If you purchase a package but decide to cancel <strong>before any footage is submitted to us and before any editing work has started</strong>, you may be eligible for a cancellation. In this specific scenario, please contact our support team within 24 hours of purchase. Any approved cancellations will be subject to a processing fee to cover payment gateway costs.</p>
+
+        <h2>4. Abandoned Projects</h2>
+        <p>If a client fails to provide the necessary footage, assets, or feedback required to complete a project within 30 days of purchase, the project will be marked as abandoned. No refunds will be issued for abandoned projects.</p>
+
+        <h2>5. Contact Us</h2>
+        <p>If you have any questions regarding your purchase or our revision process, please contact us at <strong>support@globalviewdigital.com</strong> before making a payment.</p>
+    </div>
+
+    <footer>
+        <div class="payment-icons">
+            <i class="fa-brands fa-stripe"></i>
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-cc-amex"></i>
+        </div>
+        <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
+        <p style="margin-top: 15px;">
+            <a href="terms.html">Terms of Service</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="refund.html">Refund Policy</a>
+        </p>
+    </footer>
+</body>
+</html>
