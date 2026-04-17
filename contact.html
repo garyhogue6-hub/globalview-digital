@@ -27,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* AMBIJENTALNA SVETLA */
         .glow-left, .glow-right {
             position: fixed;
             border-radius: 50%;
@@ -35,218 +34,79 @@
             z-index: -1;
             pointer-events: none;
         }
-        .glow-left {
-            top: 20%; left: -10vw;
-            width: 40vw; height: 40vw;
-            background: var(--sea-blue);
-            opacity: 0.3;
-        }
-        .glow-right {
-            bottom: 10%; right: -10vw;
-            width: 30vw; height: 30vw;
-            background: var(--cyan-glow);
-            opacity: 0.15;
-        }
+        .glow-left { top: 20%; left: -10vw; width: 40vw; height: 40vw; background: var(--sea-blue); opacity: 0.3; }
+        .glow-right { bottom: 10%; right: -10vw; width: 30vw; height: 30vw; background: var(--cyan-glow); opacity: 0.15; }
 
-        /* LEBDEĆI TEKST SA STRANE */
         .side-text-left {
-            position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg);
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            opacity: 0.3;
-            pointer-events: none;
+            position: fixed; left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg);
+            color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;
+            opacity: 0.3; pointer-events: none;
         }
 
-        /* HEADER */
         header { 
-            background: rgba(10, 10, 10, 0.75); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 25px 50px; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            padding: 25px 50px; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
         .logo { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 2.5rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+            font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; 
+            letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
         }
 
         nav { display: flex; gap: 40px; }
         nav a { 
-            color: var(--text-main); 
-            text-decoration: none; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            font-size: 0.9rem; 
-            letter-spacing: 2px; 
-            transition: color 0.3s, text-shadow 0.3s; 
+            color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; 
+            font-size: 0.9rem; letter-spacing: 2px; transition: color 0.3s, text-shadow 0.3s; 
         }
-        nav a:hover { 
-            color: var(--cyan-glow); 
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-        }
+        nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 
-        /* MAIN CONTENT - CONTACT WRAPPER */
-        .main-content {
-            position: relative;
-            z-index: 10;
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .main-content { position: relative; z-index: 10; padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
 
         .section-title { 
-            font-family: 'Montserrat', sans-serif; 
-            text-align: center; 
-            font-size: 3.5rem; 
-            color: var(--text-main); 
-            margin-bottom: 60px; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); 
+            margin-bottom: 60px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;
         }
-        .section-title span {
-            color: var(--cyan-glow);
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-        }
+        .section-title span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
 
-        /* GRID ZA KONTAKT (Pola info, pola forma) */
         .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            background: rgba(17, 17, 17, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; background: rgba(17, 17, 17, 0.6);
+            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;
+            padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        /* LEVA STRANA - INFORMACIJE */
-        .contact-info h3 {
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-        .contact-info > p {
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
+        .contact-info h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 10px; color: var(--text-main); }
+        .contact-info > p { color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; }
 
-        .info-block {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 2px solid rgba(0, 229, 255, 0.3);
-        }
-        .info-block h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--cyan-glow);
-            margin-bottom: 8px;
-        }
-        .info-block p {
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-        .info-block.emails a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.3s, text-shadow 0.3s;
-        }
-        .info-block.emails a:hover {
-            color: var(--cyan-glow);
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-        }
-        .info-block.emails strong {
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-right: 10px;
-        }
+        .info-block { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid rgba(0, 229, 255, 0.3); }
+        .info-block h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cyan-glow); margin-bottom: 8px; }
+        .info-block p { color: var(--text-main); line-height: 1.6; }
+        .info-block.emails a { color: var(--text-main); text-decoration: none; transition: color 0.3s, text-shadow 0.3s; }
+        .info-block.emails a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
+        .info-block.emails strong { color: var(--text-muted); font-weight: 400; margin-right: 10px; }
 
-        /* DESNA STRANA - FORMA */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .input-group {
-            position: relative;
-        }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .input-group { position: relative; }
         .contact-form input, .contact-form textarea {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 15px 20px;
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s;
+            width: 100%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; padding: 15px 20px; color: var(--text-main); font-family: 'Inter', sans-serif;
+            font-size: 1rem; outline: none; transition: all 0.3s;
         }
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        /* Neon efekat kada se klikne na polje */
+        .contact-form textarea { resize: vertical; min-height: 150px; }
         .contact-form input:focus, .contact-form textarea:focus {
-            border-color: var(--cyan-glow);
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
-            background: rgba(0, 0, 0, 0.8);
+            border-color: var(--cyan-glow); box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); background: rgba(0, 0, 0, 0.8);
         }
 
         .btn { 
-            display: inline-block; 
-            background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); 
-            color: #000; 
-            padding: 18px 45px; 
-            border: none;
-            cursor: pointer;
-            border-radius: 8px; 
-            font-weight: 700; 
-            font-size: 1.05rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            transition: transform 0.3s, box-shadow 0.3s; 
-            width: 100%;
-            margin-top: 10px;
+            display: inline-block; background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); 
+            color: #000; padding: 18px 45px; border: none; cursor: pointer; border-radius: 8px; 
+            font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1.5px; 
+            transition: transform 0.3s, box-shadow 0.3s; width: 100%; margin-top: 10px;
         }
-        .btn:hover { 
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3);
-        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
 
-        /* FOOTER */
-        footer { 
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center; 
-            padding: 40px 20px; 
-            margin-top: 80px; 
-            color: var(--text-muted);
-        }
+        footer { border-top: 1px solid rgba(255,255,255,0.05); text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
         footer a:hover { color: var(--cyan-glow); }
     </style>
@@ -261,6 +121,7 @@
         <div class="logo">GlobalView Digital</div>
         <nav>
             <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
             <a href="pricing.html">Pricing</a>
             <a href="contact.html">Contact Us</a>
         </nav>
@@ -270,20 +131,9 @@
         <h2 class="section-title">Get in <span>Touch</span></h2>
         
         <div class="contact-grid">
-            
             <div class="contact-info">
                 <h3>Let's Create Together</h3>
                 <p>Ready to scale your content and dominate the feed? Reach out to our team directly or send us a message below.</p>
-
-                <div class="info-block">
-                    <h4>Company Address</h4>
-                    <p>30 N Gould St Ste R<br>Sheridan, WY 82801<br>United States</p>
-                </div>
-
-                <div class="info-block">
-                    <h4>Location</h4>
-                    <p>100% Remote / Online Workspace</p>
-                </div>
 
                 <div class="info-block emails">
                     <h4>Direct Contact</h4>
@@ -316,16 +166,12 @@
                     <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
-
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 15px;">
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Privacy Policy</a>
-        </p>
+        <p style="margin-top: 15px;"><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
     </footer>
 
 </body>
