@@ -3,120 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | GlobalView Digital</title>
+    <title>About Us | GlobalView Digital</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
-
-        :root {
-            --bg-dark: #0a0a0a;
-            --sea-blue: #006994;
-            --cyan-glow: #00e5ff;
-            --text-main: #f8f9fa;
-            --text-muted: #a0aec0;
-        }
-
+        :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
-            background-size: 40px 40px;
-            color: var(--text-main); 
-            line-height: 1.6; 
-            overflow-x: hidden;
-        }
-
-        .glow-left, .glow-right {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(150px);
-            z-index: -1;
-            pointer-events: none;
-        }
+        .glow-left, .glow-right { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; }
         .glow-left { top: 20%; left: -10vw; width: 40vw; height: 40vw; background: var(--sea-blue); opacity: 0.3; }
         .glow-right { bottom: 10%; right: -10vw; width: 30vw; height: 30vw; background: var(--cyan-glow); opacity: 0.15; }
 
-        .side-text-left {
-            position: fixed; left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg);
-            color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;
-            opacity: 0.3; pointer-events: none;
-        }
-
-        header { 
-            background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: 25px 50px; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
         
-        .logo { 
-            font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; 
-            letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-        }
-
-        nav { display: flex; gap: 40px; }
-        nav a { 
-            color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; 
-            font-size: 0.9rem; letter-spacing: 2px; transition: color 0.3s, text-shadow 0.3s; 
-        }
+        nav { display: flex; gap: 30px; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s, text-shadow 0.3s; }
         nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 
         .main-content { position: relative; z-index: 10; padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-
-        .section-title { 
-            font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); 
-            margin-bottom: 60px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;
-        }
+        .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); margin-bottom: 60px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
         .section-title span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
 
-        .contact-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; background: rgba(17, 17, 17, 0.6);
-            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;
-            padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
+        .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start; }
+        .about-text { background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .about-text h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 20px; color: var(--cyan-glow); }
+        .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; }
+        .about-text p strong { color: var(--text-main); }
 
-        .contact-info h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 10px; color: var(--text-main); }
-        .contact-info > p { color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; }
-
-        .info-block { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid rgba(0, 229, 255, 0.3); }
-        .info-block h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cyan-glow); margin-bottom: 8px; }
-        .info-block p { color: var(--text-main); line-height: 1.6; }
-        .info-block.emails a { color: var(--text-main); text-decoration: none; transition: color 0.3s, text-shadow 0.3s; }
-        .info-block.emails a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
-        .info-block.emails strong { color: var(--text-muted); font-weight: 400; margin-right: 10px; }
-
-        .contact-form { display: flex; flex-direction: column; gap: 20px; }
-        .input-group { position: relative; }
-        .contact-form input, .contact-form textarea {
-            width: 100%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px; padding: 15px 20px; color: var(--text-main); font-family: 'Inter', sans-serif;
-            font-size: 1rem; outline: none; transition: all 0.3s;
-        }
-        .contact-form textarea { resize: vertical; min-height: 150px; }
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: var(--cyan-glow); box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); background: rgba(0, 0, 0, 0.8);
-        }
-
-        .btn { 
-            display: inline-block; background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); 
-            color: #000; padding: 18px 45px; border: none; cursor: pointer; border-radius: 8px; 
-            font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1.5px; 
-            transition: transform 0.3s, box-shadow 0.3s; width: 100%; margin-top: 10px;
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
+        .company-details { background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-top: 5px solid var(--cyan-glow); border-radius: 20px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .company-details h4 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 30px; color: var(--text-main); }
+        .detail-block { margin-bottom: 25px; padding-left: 20px; border-left: 2px solid rgba(0, 229, 255, 0.3); }
+        .detail-block h5 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cyan-glow); margin-bottom: 8px; }
+        .detail-block p { color: var(--text-muted); line-height: 1.6; }
+        .detail-block strong { color: var(--text-main); }
 
         footer { border-top: 1px solid rgba(255,255,255,0.05); text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
         footer a:hover { color: var(--cyan-glow); }
+
+        /* MOBILNI TELEFONI */
+        @media (max-width: 768px) {
+            header { padding: 15px; flex-direction: column; gap: 15px; }
+            .logo { font-size: 2rem; }
+            nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .section-title { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-text, .company-details { padding: 30px 20px; }
+        }
     </style>
 </head>
 <body>
-
-    <div class="glow-left"></div>
-    <div class="glow-right"></div>
-    <div class="side-text-left">Let's Connect</div>
-
+    <div class="glow-left"></div><div class="glow-right"></div>
     <header>
         <div class="logo">GlobalView Digital</div>
         <nav>
@@ -128,43 +66,21 @@
     </header>
 
     <div class="main-content">
-        <h2 class="section-title">Get in <span>Touch</span></h2>
+        <h2 class="section-title">Who <span>We Are</span></h2>
         
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Let's Create Together</h3>
-                <p>Ready to scale your content and dominate the feed? Reach out to our team directly or send us a message below.</p>
-
-                <div class="info-block emails">
-                    <h4>Direct Contact</h4>
-                    <p><strong>General Inquiries:</strong> <br><a href="mailto:contact@globalviewdigital.com">contact@globalviewdigital.com</a></p>
-                    <p style="margin-top: 10px;"><strong>Client Support:</strong> <br><a href="mailto:support@globalviewdigital.com">support@globalviewdigital.com</a></p>
-                </div>
-
-                <div class="info-block">
-                    <h4>Business Hours (EST)</h4>
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p>Saturday: 10:00 AM - 2:00 PM</p>
-                    <p>Sunday: Closed</p>
-                </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Driven by Excellence. Focused on You.</h3>
+                <p>At <strong>GlobalView Digital</strong>, we treat video editing as a perfect blend of art and strategy. We are a team of dedicated professionals who understand that your brand's reputation is on the line with every frame we cut. Our mission is to elevate your content while providing a seamless, stress-free experience.</p>
+                <p>Time is money in the digital landscape. That is why <strong>strict adherence to deadlines</strong> is a core pillar of our workflow. We pride ourselves on delivering polished, high-retention content exactly when you need it.</p>
+                <p>Our philosophy is simple: <strong>the client always comes first</strong>. We believe in transparent communication, rapid response times, and a highly collaborative approach.</p>
             </div>
 
-            <div class="contact-form-wrapper">
-                <form class="contact-form" action="#" method="POST">
-                    <div class="input-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" placeholder="Your Email Address" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" placeholder="Subject / Project Type">
-                    </div>
-                    <div class="input-group">
-                        <textarea placeholder="Tell us about your project..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+            <div class="company-details">
+                <h4>Company Registry</h4>
+                <div class="detail-block"><h5>Entity Type</h5><p><strong>Registered US LLC</strong></p></div>
+                <div class="detail-block"><h5>Official Address</h5><p>30 N Gould St Ste R<br>Sheridan, WY 82801<br>United States</p></div>
+                <div class="detail-block"><h5>Operations</h5><p>Remote / Online Workspace<br>Serving global clientele.</p></div>
             </div>
         </div>
     </div>
@@ -173,6 +89,5 @@
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
         <p style="margin-top: 15px;"><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
     </footer>
-
 </body>
 </html>
