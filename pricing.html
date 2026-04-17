@@ -5,45 +5,286 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | GlobalView Digital</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
 
-        :root { --sea-blue: #006994; --dark-blue: #004b6b; --light-bg: #f4f8fa; --text-dark: #1a202c; --white: #ffffff; }
+        :root {
+            --bg-dark: #0a0a0a;
+            --sea-blue: #006994;
+            --cyan-glow: #00e5ff;
+            --text-main: #f8f9fa;
+            --text-muted: #a0aec0;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-dark); 
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            color: var(--text-main); 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
 
-        header { background-color: var(--sea-blue); padding: 35px 0 20px 0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        nav { display: flex; justify-content: center; gap: 40px; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1.5px; transition: opacity 0.3s; }
-        nav a:hover { opacity: 0.7; }
+        /* AMBIJENTALNA SVETLA (Kao na početnoj) */
+        .glow-left, .glow-right {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glow-left {
+            top: 20%; left: -10vw;
+            width: 40vw; height: 40vw;
+            background: var(--sea-blue);
+            opacity: 0.3;
+        }
+        .glow-right {
+            bottom: 10%; right: -10vw;
+            width: 30vw; height: 30vw;
+            background: var(--cyan-glow);
+            opacity: 0.15;
+        }
 
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 2.5rem; color: var(--sea-blue); margin-bottom: 50px; font-weight: 800; text-transform: uppercase; }
+        /* LEBDEĆI TEKST SA STRANE */
+        .side-text-left {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.3;
+            pointer-events: none;
+        }
 
-        /* PRICING GRID */
-        .pricing-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
-        .pricing-card { background: var(--white); border-radius: 10px; padding: 40px 30px; width: 270px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 6px solid var(--sea-blue); transition: transform 0.3s; }
-        .pricing-card:hover { transform: translateY(-10px); }
-        .pricing-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 15px; height: 60px; }
-        .pricing-card .price { font-size: 2.5rem; font-weight: 700; color: var(--sea-blue); margin-bottom: 20px; }
-        .pricing-card ul { list-style: none; text-align: left; margin-bottom: 20px; }
-        .pricing-card ul li { margin-bottom: 15px; font-size: 0.95rem; border-bottom: 1px solid #edf2f7; padding-bottom: 10px; }
-        .pricing-card ul li strong { color: var(--text-dark); display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px;}
+        /* HEADER */
+        header { 
+            background: rgba(10, 10, 10, 0.75); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 25px 50px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .logo { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 2.5rem; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+        }
 
-        /* CUSTOM SOLUTIONS */
-        .custom-solutions { background: var(--white); border-radius: 10px; padding: 50px; text-align: center; margin-top: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .custom-solutions h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: var(--sea-blue); margin-bottom: 10px; }
-        .custom-solutions h4 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 20px; font-weight: 600; }
-        .custom-solutions p { max-width: 800px; margin: 0 auto 30px auto; color: #4a5568; }
-        .btn-outline { border: 2px solid var(--sea-blue); color: var(--sea-blue); padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; text-transform: uppercase; transition: all 0.3s; }
-        .btn-outline:hover { background: var(--sea-blue); color: var(--white); }
+        nav { display: flex; gap: 40px; }
+        nav a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+            letter-spacing: 2px; 
+            transition: color 0.3s, text-shadow 0.3s; 
+        }
+        nav a:hover { 
+            color: var(--cyan-glow); 
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
 
-        footer { background-color: var(--text-dark); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 60px; }
-        footer a { color: #a0aec0; text-decoration: none; margin: 0 10px; font-size: 0.9rem;}
-        footer a:hover { color: var(--white); }
+        /* MAIN CONTENT */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            padding: 80px 20px;
+        }
+
+        .section-title { 
+            font-family: 'Montserrat', sans-serif; 
+            text-align: center; 
+            font-size: 3.5rem; 
+            color: var(--text-main); 
+            margin-bottom: 80px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+        .section-title span {
+            color: var(--cyan-glow);
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* PRICING GRID - 4 U JEDNOM REDU */
+        .pricing-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* 4 kolone iste širine */
+            gap: 25px; 
+            max-width: 1400px; /* Prošireno da stanu 4 kartice */
+            margin: 0 auto; 
+        }
+
+        /* KREATIVNE KARTICE */
+        .pricing-card { 
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px; 
+            padding: 40px 30px; 
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pricing-card:hover { 
+            transform: translateY(-15px); 
+            border-color: var(--cyan-glow);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.15);
+        }
+
+        /* BEDŽ ZA NAJPOPULARNIJI PAKET */
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow));
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .pricing-card h3 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1.4rem; 
+            color: var(--text-main); 
+            margin-bottom: 15px; 
+            height: 50px; 
+            font-weight: 700;
+        }
+        .pricing-card .price { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem; 
+            font-weight: 900; 
+            color: var(--cyan-glow); 
+            margin-bottom: 30px; 
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+        }
+
+        /* LISTA SPECIFIKACIJA */
+        .pricing-card ul { 
+            list-style: none; 
+            text-align: left; 
+            flex-grow: 1;
+        }
+        .pricing-card ul li { 
+            margin-bottom: 20px; 
+            font-size: 0.95rem; 
+            padding-bottom: 15px; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 20px;
+        }
+        .pricing-card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--cyan-glow);
+            font-weight: bold;
+        }
+        .pricing-card ul li strong { 
+            color: var(--text-main); 
+            display: block; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 5px;
+        }
+
+        /* CUSTOM SOLUTIONS BANNER */
+        .custom-solutions { 
+            background: rgba(17, 17, 17, 0.6); 
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px; 
+            padding: 60px; 
+            text-align: center; 
+            margin: 80px auto 0; 
+            max-width: 1000px;
+            backdrop-filter: blur(10px);
+        }
+        .custom-solutions h3 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 2.5rem; 
+            color: var(--text-main); 
+            margin-bottom: 15px; 
+        }
+        .custom-solutions h4 { 
+            font-size: 1.2rem; 
+            color: var(--cyan-glow); 
+            margin-bottom: 25px; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .custom-solutions p { 
+            max-width: 800px; 
+            margin: 0 auto 40px auto; 
+            color: var(--text-muted); 
+            font-size: 1.1rem;
+        }
+        .btn-outline { 
+            border: 2px solid var(--cyan-glow); 
+            color: var(--cyan-glow); 
+            padding: 15px 40px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            transition: all 0.3s; 
+            display: inline-block;
+        }
+        .btn-outline:hover { 
+            background: var(--cyan-glow); 
+            color: #000; 
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* FOOTER */
+        footer { 
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center; 
+            padding: 40px 20px; 
+            margin-top: 80px; 
+            color: var(--text-muted);
+        }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
+        footer a:hover { color: var(--cyan-glow); }
     </style>
 </head>
 <body>
+
+    <div class="glow-left"></div>
+    <div class="glow-right"></div>
+    <div class="side-text-left">Investment Plans</div>
 
     <header>
         <div class="logo">GlobalView Digital</div>
@@ -54,27 +295,28 @@
         </nav>
     </header>
 
-    <section>
-        <h2 class="section-title">Investment Plans</h2>
+    <div class="main-content">
+        <h2 class="section-title">Editing <span>Packages</span></h2>
         
         <div class="pricing-grid">
             <div class="pricing-card">
                 <h3>Short-Form Spark</h3>
                 <div class="price">$15</div>
                 <ul>
-                    <li><strong>Duration Limit</strong> Up to 15 sec</li>
-                    <li><strong>Scaling Rules</strong> +$5 per every 3 sec</li>
-                    <li><strong>Max Price</strong> $35</li>
+                    <li><strong>Base Duration</strong> Up to 15 sec</li>
+                    <li><strong>Scaling Rule</strong> +$5 per every 3 sec</li>
+                    <li><strong>Maximum Price</strong> Cap at $35</li>
                 </ul>
             </div>
             
-            <div class="pricing-card">
+            <div class="pricing-card" style="border-color: rgba(0, 229, 255, 0.3); background: rgba(20, 20, 20, 0.95);">
+                <div class="popular-badge">Most Popular</div>
                 <h3>Social Media Pro</h3>
                 <div class="price">$40</div>
                 <ul>
-                    <li><strong>Duration Limit</strong> Up to 60 sec</li>
-                    <li><strong>Scaling Rules</strong> +$5 per every 10 sec</li>
-                    <li><strong>Max Price</strong> $60</li>
+                    <li><strong>Base Duration</strong> Up to 60 sec</li>
+                    <li><strong>Scaling Rule</strong> +$5 per every 10 sec</li>
+                    <li><strong>Maximum Price</strong> Cap at $60</li>
                 </ul>
             </div>
             
@@ -82,9 +324,9 @@
                 <h3>Content Creator</h3>
                 <div class="price">$65</div>
                 <ul>
-                    <li><strong>Duration Limit</strong> Up to 5 min</li>
-                    <li><strong>Scaling Rules</strong> +$5 per every 20 sec</li>
-                    <li><strong>Max Price</strong> $105</li>
+                    <li><strong>Base Duration</strong> Up to 5 min</li>
+                    <li><strong>Scaling Rule</strong> +$5 per every 20 sec</li>
+                    <li><strong>Maximum Price</strong> Cap at $105</li>
                 </ul>
             </div>
 
@@ -92,9 +334,9 @@
                 <h3>Long-Form Master</h3>
                 <div class="price">$110</div>
                 <ul>
-                    <li><strong>Duration Limit</strong> Up to 30 min</li>
-                    <li><strong>Scaling Rules</strong> +$5 per every 1 min</li>
-                    <li><strong>Max Price</strong> $150</li>
+                    <li><strong>Base Duration</strong> Up to 30 min</li>
+                    <li><strong>Scaling Rule</strong> +$5 per every 1 min</li>
+                    <li><strong>Maximum Price</strong> Cap at $150</li>
                 </ul>
             </div>
         </div>
@@ -103,17 +345,15 @@
             <h3>Custom Solutions</h3>
             <h4>Need something else?</h4>
             <p>If your project doesn't fit into these categories or requires specialized editing (complex VFX, high-end color grading, or bulk orders), feel free to reach out. We can discuss a custom quote tailored specifically to your vision.</p>
-            <a href="contact.html" class="btn-outline">Request a Custom Quote</a>
+            <a href="contact.html" class="btn-outline">Request Custom Quote</a>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 10px;">
-            <small>
-                <a href="#">Terms of Service</a> | 
-                <a href="#">Privacy Policy</a>
-            </small>
+        <p style="margin-top: 15px;">
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Privacy Policy</a>
         </p>
     </footer>
 
