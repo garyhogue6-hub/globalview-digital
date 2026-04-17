@@ -3,52 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlobalView Digital | Professional Video Editing</title>
+    <title>GlobalView Digital | Premium Video Editing</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
 
         :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #151515;
             --sea-blue: #006994;
-            --dark-blue: #004b6b;
-            --light-bg: #f4f8fa;
-            --text-dark: #1a202c;
-            --white: #ffffff;
+            --cyan-glow: #00e5ff;
+            --text-main: #f8f9fa;
+            --text-muted: #a0aec0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
 
-        /* HEADER & PREMIUM LOGO */
-        header { background-color: var(--sea-blue); padding: 35px 0 20px 0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; }
+        /* GLASSMORPHISM HEADER */
+        header { 
+            background: rgba(10, 10, 10, 0.8); 
+            backdrop-filter: blur(10px);
+            padding: 25px 50px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
         
         .logo { 
             font-family: 'Montserrat', sans-serif; 
-            font-size: 3rem; 
-            font-weight: 800; 
+            font-size: 1.8rem; 
+            font-weight: 900; 
             text-transform: uppercase; 
-            letter-spacing: 5px; 
-            margin-bottom: 20px;
-            color: var(--white);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 3px; 
+            background: linear-gradient(90deg, var(--text-main), var(--cyan-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        nav { display: flex; justify-content: center; gap: 40px; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1.5px; transition: opacity 0.3s; }
-        nav a:hover { opacity: 0.7; }
+        nav { display: flex; gap: 40px; }
+        nav a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            letter-spacing: 2px; 
+            transition: color 0.3s; 
+        }
+        nav a:hover { color: var(--cyan-glow); }
 
-        /* MAIN CONTENT */
-        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; min-height: 60vh; }
-        .hero { text-align: center; }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--sea-blue); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
-        .hero p { font-size: 1.2rem; margin-bottom: 20px; color: #4a5568; max-width: 800px; margin-left: auto; margin-right: auto; }
+        /* HERO SECTION */
+        .hero { 
+            position: relative;
+            padding: 150px 20px 100px; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 4.5rem; 
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
         
-        .btn { display: inline-block; background-color: var(--sea-blue); color: var(--white); padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 1.1rem; margin-top: 30px; transition: background 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .btn:hover { background-color: var(--dark-blue); }
+        .hero h1 span {
+            color: var(--cyan-glow);
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+        }
+
+        .hero p { 
+            font-size: 1.2rem; 
+            color: var(--text-muted); 
+            max-width: 700px; 
+            margin: 0 auto 40px auto; 
+        }
+
+        .btn { 
+            display: inline-block; 
+            background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); 
+            color: #000; 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            font-size: 1rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+        .btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2);
+        }
+
+        /* THE EDITING PROCESS & TIMELINE */
+        .process-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .process-text h2 {
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .process-text p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* CUSTOM CSS TIMELINE UI */
+        .timeline-ui {
+            background: #111;
+            border-radius: 12px;
+            border: 1px solid #222;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-size: 0.7rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .playhead {
+            position: absolute;
+            left: 35%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ff2a2a;
+            z-index: 10;
+        }
+        .playhead::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -6px;
+            width: 0; 
+            height: 0; 
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 10px solid #ff2a2a;
+        }
+
+        .track {
+            height: 40px;
+            background: #1a1a1a;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .clip {
+            position: absolute;
+            height: 30px;
+            top: 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+        }
+
+        .clip.v1 { background: linear-gradient(90deg, #005f73, #0a9396); left: 5%; width: 45%; }
+        .clip.v2 { background: linear-gradient(90deg, #9b2226, #bb3e03); left: 25%; width: 25%; z-index: 2;}
+        .clip.a1 { background: linear-gradient(90deg, #2d6a4f, #40916c); left: 5%; width: 45%; }
+        .clip.a2 { background: linear-gradient(90deg, #5a189a, #7b2cbf); left: 60%; width: 30%; }
+
+        /* SHOWCASE IMAGE */
+        .showcase {
+            width: 100%;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            border-radius: 20px;
+            margin: 50px auto;
+            max-width: 1200px;
+            border: 1px solid #222;
+            position: relative;
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+            border-radius: 20px;
+        }
 
         /* FOOTER */
-        footer { background-color: var(--text-dark); color: var(--white); text-align: center; padding: 30px 20px; margin-top: auto; }
-        footer a { color: #a0aec0; text-decoration: none; margin: 0 10px; font-size: 0.9rem;}
-        footer a:hover { color: var(--white); }
+        footer { 
+            border-top: 1px solid #222;
+            text-align: center; 
+            padding: 40px 20px; 
+            margin-top: 80px; 
+            color: var(--text-muted);
+        }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem;}
+        footer a:hover { color: var(--cyan-glow); }
     </style>
 </head>
 <body>
@@ -63,19 +245,53 @@
     </header>
 
     <section class="hero">
-        <h1>Mastering the Art of Short-Form Video</h1>
-        <p>At GlobalView Digital, we specialize in high-impact, professional video editing designed to capture attention and drive unparalleled engagement. In a fast-paced digital world, short-form content is king, and we are the architects.</p>
-        <p>From dynamic cuts and seamless transitions to polished, brand-aligned aesthetics, we deliver top-tier content tailored to your unique voice. We combine speed with cinematic quality to ensure your brand stands out.</p>
-        <a href="contact.html" class="btn">View Our Portfolio</a>
+        <h1>Attention is the <br><span>New Currency</span></h1>
+        <p>We craft high-retention, visually stunning short-form content. From raw footage to viral masterpieces, we build digital assets that scale your brand and dominate the feed.</p>
+        <a href="pricing.html" class="btn">View Packages</a>
     </section>
+
+    <section class="process-section">
+        <div class="process-text">
+            <h2>Engineered for Retention</h2>
+            <p>We don't just cut clips. We strategically pace every frame. Dynamic zoom-ins, seamless J-cuts, motion graphics, and elite sound design are layered to keep eyes glued to the screen.</p>
+            <p>Our editing pipeline is built for speed without compromising cinematic quality. Drop your footage in, and watch us turn it into gold.</p>
+        </div>
+        
+        <div class="timeline-ui">
+            <div class="timeline-header">
+                <span>00:00:00:00</span>
+                <span>00:00:15:00</span>
+                <span>00:00:30:00</span>
+                <span>00:00:45:00</span>
+            </div>
+            <div class="playhead"></div>
+            
+            <div class="track">
+                <div class="clip v2">B-Roll / VFX</div>
+            </div>
+            <div class="track">
+                <div class="clip v1">A-Roll (Main Camera)</div>
+            </div>
+            
+            <div class="track">
+                <div class="clip a1">Dialogue / Voiceover</div>
+                <div class="clip a2">SFX</div>
+            </div>
+            <div class="track" style="height: 25px;">
+                <div class="clip a1" style="background: #222; border: 1px solid #444; width: 85%;">Music Track (Waveform)</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="showcase">
+        <div class="showcase-overlay"></div>
+    </div>
 
     <footer>
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 10px;">
-            <small>
-                <a href="#">Terms of Service</a> | 
-                <a href="#">Privacy Policy</a>
-            </small>
+        <p style="margin-top: 15px;">
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Privacy Policy</a>
         </p>
     </footer>
 
