@@ -6,312 +6,73 @@
     <title>Pricing | GlobalView Digital</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
-
-        :root {
-            --bg-dark: #0a0a0a;
-            --sea-blue: #006994;
-            --cyan-glow: #00e5ff;
-            --text-main: #f8f9fa;
-            --text-muted: #a0aec0;
-        }
-
+        :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
-            background-size: 40px 40px;
-            color: var(--text-main); 
-            line-height: 1.6; 
-            overflow-x: hidden;
-        }
+        .glow-left, .glow-right { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; }
+        .glow-left { top: 20%; left: -10vw; width: 40vw; height: 40vw; background: var(--sea-blue); opacity: 0.3; }
+        .glow-right { bottom: 10%; right: -10vw; width: 30vw; height: 30vw; background: var(--cyan-glow); opacity: 0.15; }
 
-        /* AMBIJENTALNA SVETLA */
-        .glow-left, .glow-right {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(150px);
-            z-index: -1;
-            pointer-events: none;
-        }
-        .glow-left {
-            top: 20%; left: -10vw;
-            width: 40vw; height: 40vw;
-            background: var(--sea-blue);
-            opacity: 0.3;
-        }
-        .glow-right {
-            bottom: 10%; right: -10vw;
-            width: 30vw; height: 30vw;
-            background: var(--cyan-glow);
-            opacity: 0.15;
-        }
-
-        /* LEBDEĆI TEKST SA STRANE */
-        .side-text-left {
-            position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg);
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        /* HEADER */
-        header { 
-            background: rgba(10, 10, 10, 0.75); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 25px 50px; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
         
-        .logo { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 2.5rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-        }
+        nav { display: flex; gap: 30px; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s, text-shadow 0.3s; }
+        nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 
-        nav { display: flex; gap: 40px; }
-        nav a { 
-            color: var(--text-main); 
-            text-decoration: none; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            font-size: 0.9rem; 
-            letter-spacing: 2px; 
-            transition: color 0.3s, text-shadow 0.3s; 
-        }
-        nav a:hover { 
-            color: var(--cyan-glow); 
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-        }
+        .main-content { position: relative; z-index: 10; padding: 80px 20px; max-width: 1400px; margin: 0 auto; }
+        .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); margin-bottom: 80px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
 
-        /* MAIN CONTENT */
-        .main-content {
-            position: relative;
-            z-index: 10;
-            padding: 80px 20px;
-        }
-
-        .section-title { 
-            font-family: 'Montserrat', sans-serif; 
-            text-align: center; 
-            font-size: 3.5rem; 
-            color: var(--text-main); 
-            margin-bottom: 80px; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-        }
-        .section-title span {
-            color: var(--cyan-glow);
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-        }
-
-        /* PRICING GRID */
-        .pricing-grid { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 25px; 
-            max-width: 1400px; 
-            margin: 0 auto; 
-        }
-
-        /* KARTICE */
-        .pricing-card { 
-            background: rgba(17, 17, 17, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 15px; 
-            padding: 40px 30px; 
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .pricing-card:hover { 
-            transform: translateY(-15px); 
-            border-color: var(--cyan-glow);
-            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.15);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow));
-            color: #000;
-            padding: 5px 20px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
-            white-space: nowrap;
-        }
-
-        .pricing-card h3 { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1.4rem; 
-            color: var(--text-main); 
-            margin-bottom: 15px; 
-            height: 50px; 
-            font-weight: 700;
-        }
-        .pricing-card .price { 
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem; 
-            font-weight: 900; 
-            color: var(--cyan-glow); 
-            margin-bottom: 30px; 
-            text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
-        }
-
-        /* LISTE U KARTICAMA */
-        .pricing-card ul { 
-            list-style: none; 
-            text-align: left; 
-        }
-        
-        /* Glavne specifikacije (Trajanje i Skaliranje) */
+        .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .pricing-card { background: rgba(17, 17, 17, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; padding: 40px 30px; position: relative; transition: all 0.4s; display: flex; flex-direction: column; }
+        .pricing-card:hover { transform: translateY(-15px); border-color: var(--cyan-glow); box-shadow: 0 15px 40px rgba(0, 229, 255, 0.15); }
+        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); color: #000; padding: 5px 20px; border-radius: 30px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4); white-space: nowrap; }
+        .pricing-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: var(--text-main); margin-bottom: 15px; height: 50px; font-weight: 700; }
+        .pricing-card .price { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; color: var(--cyan-glow); margin-bottom: 30px; text-shadow: 0 0 15px rgba(0, 229, 255, 0.3); }
+        .pricing-card ul { list-style: none; text-align: left; }
         .pricing-card ul.specs { margin-bottom: 25px; }
-        .pricing-card ul.specs li { 
-            margin-bottom: 15px; 
-            font-size: 0.95rem; 
-            padding-bottom: 15px; 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
-            color: var(--text-muted);
-            position: relative;
-            padding-left: 20px;
-        }
-        .pricing-card ul.specs li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--cyan-glow);
-            font-weight: bold;
-        }
-        .pricing-card ul.specs li strong { 
-            color: var(--text-main); 
-            display: block; 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin-bottom: 5px;
-        }
-
-        /* Lista funkcionalnosti (Features) */
+        .pricing-card ul.specs li { margin-bottom: 15px; font-size: 0.95rem; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); position: relative; padding-left: 20px; }
+        .pricing-card ul.specs li::before { content: '▹'; position: absolute; left: 0; color: var(--cyan-glow); font-weight: bold; }
+        .pricing-card ul.specs li strong { color: var(--text-main); display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .pricing-card ul.features { flex-grow: 1; }
-        .pricing-card ul.features li {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 25px;
-            line-height: 1.4;
-        }
-        .pricing-card ul.features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: -2px;
-            color: var(--cyan-glow);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
+        .pricing-card ul.features li { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; position: relative; padding-left: 25px; }
+        .pricing-card ul.features li::before { content: '✓'; position: absolute; left: 0; top: -2px; color: var(--cyan-glow); font-weight: bold; font-size: 1.1rem; }
 
-        /* CUSTOM SOLUTIONS BANNER */
-        .custom-solutions { 
-            background: rgba(17, 17, 17, 0.6); 
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 15px; 
-            padding: 60px; 
-            text-align: center; 
-            margin: 80px auto 0; 
-            max-width: 1000px;
-            backdrop-filter: blur(10px);
-        }
-        .custom-solutions h3 { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 2.5rem; 
-            color: var(--text-main); 
-            margin-bottom: 15px; 
-        }
-        .custom-solutions h4 { 
-            font-size: 1.2rem; 
-            color: var(--cyan-glow); 
-            margin-bottom: 25px; 
-            font-weight: 600; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .custom-solutions p { 
-            max-width: 800px; 
-            margin: 0 auto 40px auto; 
-            color: var(--text-muted); 
-            font-size: 1.1rem;
-        }
-        .btn-outline { 
-            border: 2px solid var(--cyan-glow); 
-            color: var(--cyan-glow); 
-            padding: 15px 40px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px;
-            transition: all 0.3s; 
-            display: inline-block;
-        }
-        .btn-outline:hover { 
-            background: var(--cyan-glow); 
-            color: #000; 
-            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
-        }
+        .custom-solutions { background: rgba(17, 17, 17, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; padding: 60px; text-align: center; margin: 80px auto 0; max-width: 1000px; backdrop-filter: blur(10px); }
+        .custom-solutions h3 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--text-main); margin-bottom: 15px; }
+        .custom-solutions h4 { font-size: 1.2rem; color: var(--cyan-glow); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+        .custom-solutions p { max-width: 800px; margin: 0 auto 40px auto; color: var(--text-muted); font-size: 1.1rem; }
+        .btn-outline { border: 2px solid var(--cyan-glow); color: var(--cyan-glow); padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s; display: inline-block; }
+        .btn-outline:hover { background: var(--cyan-glow); color: #000; box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3); }
 
-        /* FOOTER */
-        footer { 
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center; 
-            padding: 40px 20px; 
-            margin-top: 80px; 
-            color: var(--text-muted);
-        }
+        footer { border-top: 1px solid rgba(255,255,255,0.05); text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
         footer a:hover { color: var(--cyan-glow); }
+
+        /* MOBILNI TELEFONI & TABLETI */
+        @media (max-width: 1100px) {
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 15px; flex-direction: column; gap: 15px; }
+            .logo { font-size: 2rem; }
+            nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .section-title { font-size: 2.5rem; }
+            .pricing-grid { grid-template-columns: 1fr; gap: 40px; }
+            .custom-solutions { padding: 30px 20px; }
+            .custom-solutions h3 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
-
-    <div class="glow-left"></div>
-    <div class="glow-right"></div>
-    <div class="side-text-left">Investment Plans</div>
-
+    <div class="glow-left"></div><div class="glow-right"></div>
     <header>
         <div class="logo">GlobalView Digital</div>
         <nav>
             <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
             <a href="pricing.html">Pricing</a>
             <a href="contact.html">Contact Us</a>
         </nav>
@@ -322,64 +83,28 @@
         
         <div class="pricing-grid">
             <div class="pricing-card">
-                <h3>Short-Form Spark</h3>
-                <div class="price">$15</div>
-                <ul class="specs">
-                    <li><strong>Base Duration</strong> Up to 15 sec</li>
-                    <li><strong>Scaling Rule</strong> +$5 per every 3 sec</li>
-                </ul>
-                <ul class="features">
-                    <li>Dynamic Captions</li>
-                    <li>Basic Cuts & Pacing</li>
-                    <li>Trending Audio sync</li>
-                    <li>1 Revision included</li>
-                </ul>
+                <h3>Short-Form Spark</h3><div class="price">$15</div>
+                <ul class="specs"><li><strong>Base Duration</strong> Up to 15 sec</li><li><strong>Scaling Rule</strong> +$5 per every 3 sec</li></ul>
+                <ul class="features"><li>Dynamic Captions</li><li>Basic Cuts & Pacing</li><li>Trending Audio sync</li><li>1 Revision included</li></ul>
             </div>
             
             <div class="pricing-card" style="border-color: rgba(0, 229, 255, 0.3); background: rgba(20, 20, 20, 0.95);">
                 <div class="popular-badge">Most Popular</div>
-                <h3>Social Media Pro</h3>
-                <div class="price">$40</div>
-                <ul class="specs">
-                    <li><strong>Base Duration</strong> Up to 60 sec</li>
-                    <li><strong>Scaling Rule</strong> +$5 per every 10 sec</li>
-                </ul>
-                <ul class="features">
-                    <li>Advanced Hook Creation</li>
-                    <li>Motion Graphics & VFX</li>
-                    <li>Sound Design & SFX</li>
-                    <li>2 Revisions included</li>
-                </ul>
+                <h3>Social Media Pro</h3><div class="price">$40</div>
+                <ul class="specs"><li><strong>Base Duration</strong> Up to 60 sec</li><li><strong>Scaling Rule</strong> +$5 per every 10 sec</li></ul>
+                <ul class="features"><li>Advanced Hook Creation</li><li>Motion Graphics & VFX</li><li>Sound Design & SFX</li><li>2 Revisions included</li></ul>
             </div>
             
             <div class="pricing-card">
-                <h3>Content Creator</h3>
-                <div class="price">$65</div>
-                <ul class="specs">
-                    <li><strong>Base Duration</strong> Up to 5 min</li>
-                    <li><strong>Scaling Rule</strong> +$5 per every 20 sec</li>
-                </ul>
-                <ul class="features">
-                    <li>B-Roll Sourcing & Integration</li>
-                    <li>Color Grading (Cinematic)</li>
-                    <li>Advanced Audio Mixing</li>
-                    <li>2 Revisions included</li>
-                </ul>
+                <h3>Content Creator</h3><div class="price">$65</div>
+                <ul class="specs"><li><strong>Base Duration</strong> Up to 5 min</li><li><strong>Scaling Rule</strong> +$5 per every 20 sec</li></ul>
+                <ul class="features"><li>B-Roll Sourcing & Integration</li><li>Color Grading (Cinematic)</li><li>Advanced Audio Mixing</li><li>2 Revisions included</li></ul>
             </div>
 
             <div class="pricing-card">
-                <h3>Long-Form Master</h3>
-                <div class="price">$110</div>
-                <ul class="specs">
-                    <li><strong>Base Duration</strong> Up to 30 min</li>
-                    <li><strong>Scaling Rule</strong> +$5 per every 1 min</li>
-                </ul>
-                <ul class="features">
-                    <li>Full Narrative Storytelling</li>
-                    <li>Premium Color Correction</li>
-                    <li>Complex Soundscapes</li>
-                    <li>3 Revisions included</li>
-                </ul>
+                <h3>Long-Form Master</h3><div class="price">$110</div>
+                <ul class="specs"><li><strong>Base Duration</strong> Up to 30 min</li><li><strong>Scaling Rule</strong> +$5 per every 1 min</li></ul>
+                <ul class="features"><li>Full Narrative Storytelling</li><li>Premium Color Correction</li><li>Complex Soundscapes</li><li>3 Revisions included</li></ul>
             </div>
         </div>
 
@@ -393,11 +118,7 @@
 
     <footer>
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 15px;">
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Privacy Policy</a>
-        </p>
+        <p style="margin-top: 15px;"><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
     </footer>
-
 </body>
 </html>
