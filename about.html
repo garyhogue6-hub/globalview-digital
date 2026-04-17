@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | GlobalView Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
 
@@ -23,30 +24,31 @@
         nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s, text-shadow 0.3s; }
         nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 
-        /* KLJUČNO DA SAJT NE PROPADNE U POZADINU */
         .main-content { position: relative; z-index: 10; padding: 80px 20px 40px; max-width: 1200px; margin: 0 auto; }
 
         .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); margin-bottom: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
         .section-title span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
         .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1.2rem; max-width: 800px; margin: 0 auto 80px auto; }
 
-        /* STATISTIKA (NUMBERS) */
-        .stats-container { display: flex; justify-content: space-between; gap: 30px; margin-bottom: 100px; }
+        .stats-container { display: flex; justify-content: space-between; gap: 30px; margin-bottom: 80px; }
         .stat-box { flex: 1; text-align: center; background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 40px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border-bottom: 3px solid var(--cyan-glow); transition: transform 0.3s; }
         .stat-box:hover { transform: translateY(-5px); }
         .stat-number { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900; color: var(--text-main); line-height: 1; margin-bottom: 10px; }
         .stat-number span { color: var(--cyan-glow); text-shadow: 0 0 15px rgba(0, 229, 255, 0.4); }
         .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); font-weight: 600; }
 
-        /* NAŠA PREDNOST (3 KARTICE) */
-        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 100px; }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 80px; }
         .value-card { background: rgba(17, 17, 17, 0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; padding: 40px; position: relative; transition: all 0.3s; }
         .value-card:hover { background: rgba(17, 17, 17, 0.8); border-color: rgba(0, 229, 255, 0.3); box-shadow: 0 15px 40px rgba(0, 229, 255, 0.1); transform: translateY(-10px); }
         .value-icon { font-size: 2rem; margin-bottom: 20px; color: var(--cyan-glow); }
         .value-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--text-main); }
         .value-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
 
-        /* LLC INFO */
+        /* FOUNDER BIO ZA MERCURY BANKU */
+        .founder-bio { background: linear-gradient(145deg, rgba(0, 105, 148, 0.1), rgba(0, 229, 255, 0.05)); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 20px; padding: 50px; margin-bottom: 80px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .founder-bio h4 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: var(--text-main); margin-bottom: 20px; }
+        .founder-bio p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; }
+
         .registry-container { background: linear-gradient(145deg, rgba(17, 17, 17, 0.9), rgba(10, 10, 10, 0.9)); border: 1px solid rgba(255,255,255,0.1); border-left: 5px solid var(--cyan-glow); border-radius: 20px; padding: 50px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         .registry-text { flex: 2; min-width: 300px; }
         .registry-text h4 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main); }
@@ -56,7 +58,11 @@
         .registry-details p { color: var(--text-main); font-size: 1rem; margin-bottom: 20px; }
         .registry-details p:last-child { margin-bottom: 0; }
 
+        /* NOVI FOOTER SA KARTICAMA */
         footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
+        .payment-icons { font-size: 2rem; margin-bottom: 20px; color: var(--text-muted); display: flex; justify-content: center; gap: 20px; }
+        .payment-icons i { transition: color 0.3s; }
+        .payment-icons i:hover { color: var(--cyan-glow); }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
         footer a:hover { color: var(--cyan-glow); }
 
@@ -66,11 +72,11 @@
         .side-scroll-right span { color: var(--text-muted); font-size: 0.7rem; letter-spacing: 2px; writing-mode: vertical-rl; }
         .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--cyan-glow), transparent); }
 
-        /* MOBILNI TELEFONI */
         @media (max-width: 900px) {
             .stats-container { flex-direction: column; gap: 20px; }
             .values-grid { grid-template-columns: 1fr; gap: 30px; }
             .registry-container { flex-direction: column; align-items: flex-start; padding: 30px; }
+            .founder-bio { padding: 30px; }
         }
         @media (max-width: 768px) {
             header { padding: 15px; flex-direction: column; gap: 15px; }
@@ -101,61 +107,51 @@
         <p class="section-subtitle">We are not just video editors. We are digital strategists dedicated to scaling your brand through high-retention, algorithm-friendly content.</p>
 
         <div class="stats-container">
-            <div class="stat-box">
-                <div class="stat-number">500<span>M+</span></div>
-                <div class="stat-label">Views Generated</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">98<span>%</span></div>
-                <div class="stat-label">Client Retention</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">48<span>h</span></div>
-                <div class="stat-label">Avg. Turnaround</div>
-            </div>
+            <div class="stat-box"><div class="stat-number">500<span>M+</span></div><div class="stat-label">Views Generated</div></div>
+            <div class="stat-box"><div class="stat-number">98<span>%</span></div><div class="stat-label">Client Retention</div></div>
+            <div class="stat-box"><div class="stat-number">48<span>h</span></div><div class="stat-label">Avg. Turnaround</div></div>
         </div>
 
         <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon">✦</div>
-                <h3>The Art of Retention</h3>
-                <p>In a digital ecosystem where attention spans are measured in milliseconds, pacing is everything. We study algorithm behaviors and human psychology to craft videos with aggressive hooks, dynamic visual shifts, and pacing that makes swiping away impossible.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">⟁</div>
-                <h3>Cinematic Precision</h3>
-                <p>We treat every short-form piece as a mini-movie. Our team implements industry-standard color grading, seamless J-cuts, advanced motion graphics, and rich soundscapes. Your brand deserves to look premium, and we ensure maximum production value on every export.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">◈</div>
-                <h3>Zero-Friction Workflow</h3>
-                <p>We know that as a creator or business owner, your time is your most valuable asset. That is why strict adherence to deadlines is our core pillar. Drop your raw footage into our system, and consider it done. No babysitting, no missed uploads, just results.</p>
-            </div>
+            <div class="value-card"><div class="value-icon">✦</div><h3>The Art of Retention</h3><p>We study algorithm behaviors and human psychology to craft videos with aggressive hooks and pacing that makes swiping away impossible.</p></div>
+            <div class="value-card"><div class="value-icon">⟁</div><h3>Cinematic Precision</h3><p>We implement industry-standard color grading, seamless J-cuts, advanced motion graphics, and rich soundscapes ensuring maximum production value.</p></div>
+            <div class="value-card"><div class="value-icon">◈</div><h3>Zero-Friction Workflow</h3><p>Strict adherence to deadlines is our core pillar. Drop your raw footage into our system, and consider it done. No babysitting, just results.</p></div>
+        </div>
+
+        <div class="founder-bio">
+            <h4>The Experience Behind the Edits</h4>
+            <p>GlobalView Digital wasn't born out of a trend; it was built on a foundation of real-world production experience. With years spent in professional photography and high-end video production, we understand that pacing, lighting, and composition aren't just technical terms—they are the psychological triggers that keep a viewer engaged.</p>
+            <p>This is not a faceless agency. Every project passing through our pipeline is supervised with the meticulous eye of a professional who has been behind the lens and in the editing bay. We bridge the gap between stunning visual aesthetics and high-converting digital strategy.</p>
         </div>
 
         <div class="registry-container">
             <div class="registry-text">
                 <h4>A Trusted US Entity</h4>
-                <p>GlobalView Digital operates globally, but is anchored by strict US business standards. We pride ourselves on transparent communication, rapid response times, and a highly collaborative approach.</p>
-                <p>Your total satisfaction is our ultimate metric for success. We won't stop until your vision is perfectly translated onto the screen.</p>
+                <p>GlobalView Digital operates globally, but is anchored by strict US business standards. Your total satisfaction is our ultimate metric for success.</p>
             </div>
             <div class="registry-details">
-                <h5>Entity Type</h5>
-                <p>Registered US LLC</p>
-                
-                <h5>Headquarters</h5>
-                <p>30 N Gould St Ste R<br>Sheridan, WY 82801</p>
-                
-                <h5>Operations</h5>
-                <p>Remote Workflow<br>Global Clientele</p>
+                <h5>Entity Type</h5><p>Registered US LLC</p>
+                <h5>Headquarters</h5><p>30 N Gould St Ste R<br>Sheridan, WY 82801</p>
+                <h5>Operations</h5><p>Remote / Global Clientele</p>
             </div>
         </div>
-
     </div>
 
     <footer>
+        <div class="payment-icons">
+            <i class="fa-brands fa-stripe"></i>
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-cc-amex"></i>
+            <i class="fa-brands fa-apple-pay"></i>
+        </div>
+        <p style="margin-bottom: 10px; font-size: 0.85rem;">Guaranteed safe & secure checkout.</p>
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 15px;"><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+        <p style="margin-top: 15px;">
+            <a href="terms.html">Terms of Service</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="refund.html">Refund Policy</a>
+        </p>
     </footer>
 </body>
 </html>
