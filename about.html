@@ -6,112 +6,38 @@
     <title>About Us | GlobalView Digital</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
-
-        :root {
-            --bg-dark: #0a0a0a;
-            --sea-blue: #006994;
-            --cyan-glow: #00e5ff;
-            --text-main: #f8f9fa;
-            --text-muted: #a0aec0;
-        }
-
+        :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
-            background-size: 40px 40px;
-            color: var(--text-main); 
-            line-height: 1.6; 
-            overflow-x: hidden;
-        }
-
-        .glow-left, .glow-right {
-            position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; }
+        .glow-left, .glow-right { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; }
         .glow-left { top: 20%; left: -10vw; width: 40vw; height: 40vw; background: var(--sea-blue); opacity: 0.3; }
         .glow-right { bottom: 10%; right: -10vw; width: 30vw; height: 30vw; background: var(--cyan-glow); opacity: 0.15; }
-
-        .side-text-left {
-            position: fixed; left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg);
-            color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;
-            opacity: 0.3; pointer-events: none;
-        }
-
-        header { 
-            background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: 25px 50px; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .logo { 
-            font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; 
-            letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-        }
-
-        nav { display: flex; gap: 40px; }
-        nav a { 
-            color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; 
-            font-size: 0.9rem; letter-spacing: 2px; transition: color 0.3s, text-shadow 0.3s; 
-        }
-        nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
-
-        .main-content { position: relative; z-index: 10; padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-
-        .section-title { 
-            font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); 
-            margin-bottom: 60px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;
-        }
-        .section-title span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .about-text {
-            background: rgba(17, 17, 17, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-        .about-text h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 20px; color: var(--cyan-glow); }
-        .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; }
-        .about-text p strong { color: var(--text-main); }
-
-        .company-details {
-            background: rgba(17, 17, 17, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-top: 5px solid var(--cyan-glow);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-        .company-details h4 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 30px; color: var(--text-main); }
-        
+        header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
+        nav { display: flex; gap: 30px; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; }
+        .main-content { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; margin-bottom: 60px; font-weight: 900; text-transform: uppercase; }
+        .section-title span { color: var(--cyan-glow); }
+        .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; }
+        .about-text { background: rgba(17, 17, 17, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 50px; }
+        .company-details { background: rgba(17, 17, 17, 0.6); border-top: 5px solid var(--cyan-glow); border-radius: 20px; padding: 40px; }
         .detail-block { margin-bottom: 25px; padding-left: 20px; border-left: 2px solid rgba(0, 229, 255, 0.3); }
-        .detail-block h5 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cyan-glow); margin-bottom: 8px; }
-        .detail-block p { color: var(--text-muted); line-height: 1.6; }
-        .detail-block strong { color: var(--text-main); }
-
+        .detail-block h5 { font-size: 0.85rem; color: var(--cyan-glow); margin-bottom: 8px; }
         footer { border-top: 1px solid rgba(255,255,255,0.05); text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); }
-        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
-        footer a:hover { color: var(--cyan-glow); }
+
+        @media (max-width: 768px) {
+            header { padding: 20px; flex-direction: column; gap: 15px; }
+            .logo { font-size: 1.8rem; }
+            nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .section-title { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .about-text { padding: 30px; }
+        }
     </style>
 </head>
 <body>
-
-    <div class="glow-left"></div>
-    <div class="glow-right"></div>
-    <div class="side-text-left">Behind The Edits</div>
-
+    <div class="glow-left"></div><div class="glow-right"></div>
     <header>
         <div class="logo">GlobalView Digital</div>
         <nav>
@@ -121,43 +47,19 @@
             <a href="contact.html">Contact Us</a>
         </nav>
     </header>
-
     <div class="main-content">
         <h2 class="section-title">Who <span>We Are</span></h2>
-        
         <div class="about-grid">
             <div class="about-text">
-                <h3>Driven by Excellence. Focused on You.</h3>
-                <p>At <strong>GlobalView Digital</strong>, we treat video editing as a perfect blend of art and strategy. We are a team of dedicated professionals who understand that your brand's reputation is on the line with every frame we cut. Our mission is to elevate your content while providing a seamless, stress-free experience.</p>
-                <p>Time is money in the digital landscape. That is why <strong>strict adherence to deadlines</strong> is a core pillar of our workflow. We pride ourselves on delivering polished, high-retention content exactly when you need it, ensuring your publishing schedule is never compromised.</p>
-                <p>Our philosophy is simple: <strong>the client always comes first</strong>. We believe in transparent communication, rapid response times, and a highly collaborative approach. Your total satisfaction is our ultimate metric for success, and we won't stop until your vision is perfectly translated onto the screen.</p>
+                <h3>Driven by Excellence.</h3>
+                <p>At <strong>GlobalView Digital</strong>, we treat video editing as a perfect blend of art and strategy. Adherence to deadlines and client satisfaction are our core pillars.</p>
             </div>
-
             <div class="company-details">
-                <h4>Company Registry</h4>
-                
-                <div class="detail-block">
-                    <h5>Entity Type</h5>
-                    <p><strong>Registered US LLC</strong></p>
-                </div>
-
-                <div class="detail-block">
-                    <h5>Official Address</h5>
-                    <p>30 N Gould St Ste R<br>Sheridan, WY 82801<br>United States</p>
-                </div>
-
-                <div class="detail-block">
-                    <h5>Operations</h5>
-                    <p>Remote / Online Workspace<br>Serving global clientele.</p>
-                </div>
+                <div class="detail-block"><h5>Official Address</h5><p>30 N Gould St Ste R, Sheridan, WY 82801</p></div>
+                <div class="detail-block"><h5>Operations</h5><p>Remote / Online Workspace</p></div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 15px;"><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
-    </footer>
-
+    <footer><p>&copy; 2026 GlobalView Digital LLC.</p></footer>
 </body>
 </html>
