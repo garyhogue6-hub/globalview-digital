@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | GlobalView Digital</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap');
+
+        :root { --sea-blue: #006994; --dark-blue: #004b6b; --light-bg: #f4f8fa; --text-dark: #1a202c; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+
+        header { background-color: var(--sea-blue); padding: 35px 0 20px 0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        nav { display: flex; justify-content: center; gap: 40px; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1.5px; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.7; }
+
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 2.5rem; color: var(--sea-blue); margin-bottom: 50px; font-weight: 800; text-transform: uppercase; }
+
+        /* PRICING GRID */
+        .pricing-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .pricing-card { background: var(--white); border-radius: 10px; padding: 40px 30px; width: 270px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 6px solid var(--sea-blue); transition: transform 0.3s; }
+        .pricing-card:hover { transform: translateY(-10px); }
+        .pricing-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 15px; height: 60px; }
+        .pricing-card .price { font-size: 2.5rem; font-weight: 700; color: var(--sea-blue); margin-bottom: 20px; }
+        .pricing-card ul { list-style: none; text-align: left; margin-bottom: 20px; }
+        .pricing-card ul li { margin-bottom: 15px; font-size: 0.95rem; border-bottom: 1px solid #edf2f7; padding-bottom: 10px; }
+        .pricing-card ul li strong { color: var(--text-dark); display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px;}
+
+        /* CUSTOM SOLUTIONS */
+        .custom-solutions { background: var(--white); border-radius: 10px; padding: 50px; text-align: center; margin-top: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .custom-solutions h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: var(--sea-blue); margin-bottom: 10px; }
+        .custom-solutions h4 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 20px; font-weight: 600; }
+        .custom-solutions p { max-width: 800px; margin: 0 auto 30px auto; color: #4a5568; }
+        .btn-outline { border: 2px solid var(--sea-blue); color: var(--sea-blue); padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; text-transform: uppercase; transition: all 0.3s; }
+        .btn-outline:hover { background: var(--sea-blue); color: var(--white); }
+
+        footer { background-color: var(--text-dark); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 60px; }
+        footer a { color: #a0aec0; text-decoration: none; margin: 0 10px; font-size: 0.9rem;}
+        footer a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GlobalView Digital</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2 class="section-title">Investment Plans</h2>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Short-Form Spark</h3>
+                <div class="price">$15</div>
+                <ul>
+                    <li><strong>Duration Limit</strong> Up to 15 sec</li>
+                    <li><strong>Scaling Rules</strong> +$5 per every 3 sec</li>
+                    <li><strong>Max Price</strong> $35</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Social Media Pro</h3>
+                <div class="price">$40</div>
+                <ul>
+                    <li><strong>Duration Limit</strong> Up to 60 sec</li>
+                    <li><strong>Scaling Rules</strong> +$5 per every 10 sec</li>
+                    <li><strong>Max Price</strong> $60</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Content Creator</h3>
+                <div class="price">$65</div>
+                <ul>
+                    <li><strong>Duration Limit</strong> Up to 5 min</li>
+                    <li><strong>Scaling Rules</strong> +$5 per every 20 sec</li>
+                    <li><strong>Max Price</strong> $105</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Long-Form Master</h3>
+                <div class="price">$110</div>
+                <ul>
+                    <li><strong>Duration Limit</strong> Up to 30 min</li>
+                    <li><strong>Scaling Rules</strong> +$5 per every 1 min</li>
+                    <li><strong>Max Price</strong> $150</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="custom-solutions">
+            <h3>Custom Solutions</h3>
+            <h4>Need something else?</h4>
+            <p>If your project doesn't fit into these categories or requires specialized editing (complex VFX, high-end color grading, or bulk orders), feel free to reach out. We can discuss a custom quote tailored specifically to your vision.</p>
+            <a href="contact.html" class="btn-outline">Request a Custom Quote</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
+        <p style="margin-top: 10px;">
+            <small>
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </small>
+        </p>
+    </footer>
+
+</body>
+</html>
