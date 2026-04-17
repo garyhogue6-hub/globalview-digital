@@ -27,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* AMBIJENTALNA SVETLA (Kao na početnoj) */
+        /* AMBIJENTALNA SVETLA */
         .glow-left, .glow-right {
             position: fixed;
             border-radius: 50%;
@@ -126,16 +126,16 @@
             text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
         }
 
-        /* PRICING GRID - 4 U JEDNOM REDU */
+        /* PRICING GRID */
         .pricing-grid { 
             display: grid; 
-            grid-template-columns: repeat(4, 1fr); /* 4 kolone iste širine */
+            grid-template-columns: repeat(4, 1fr); 
             gap: 25px; 
-            max-width: 1400px; /* Prošireno da stanu 4 kartice */
+            max-width: 1400px; 
             margin: 0 auto; 
         }
 
-        /* KREATIVNE KARTICE */
+        /* KARTICE */
         .pricing-card { 
             background: rgba(17, 17, 17, 0.8);
             backdrop-filter: blur(10px);
@@ -154,7 +154,6 @@
             box-shadow: 0 15px 40px rgba(0, 229, 255, 0.15);
         }
 
-        /* BEDŽ ZA NAJPOPULARNIJI PAKET */
         .popular-badge {
             position: absolute;
             top: -15px;
@@ -169,6 +168,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+            white-space: nowrap;
         }
 
         .pricing-card h3 { 
@@ -188,14 +188,16 @@
             text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
         }
 
-        /* LISTA SPECIFIKACIJA */
+        /* LISTE U KARTICAMA */
         .pricing-card ul { 
             list-style: none; 
             text-align: left; 
-            flex-grow: 1;
         }
-        .pricing-card ul li { 
-            margin-bottom: 20px; 
+        
+        /* Glavne specifikacije (Trajanje i Skaliranje) */
+        .pricing-card ul.specs { margin-bottom: 25px; }
+        .pricing-card ul.specs li { 
+            margin-bottom: 15px; 
             font-size: 0.95rem; 
             padding-bottom: 15px; 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
@@ -203,20 +205,40 @@
             position: relative;
             padding-left: 20px;
         }
-        .pricing-card ul li::before {
+        .pricing-card ul.specs li::before {
             content: '▹';
             position: absolute;
             left: 0;
             color: var(--cyan-glow);
             font-weight: bold;
         }
-        .pricing-card ul li strong { 
+        .pricing-card ul.specs li strong { 
             color: var(--text-main); 
             display: block; 
             font-size: 0.8rem; 
             text-transform: uppercase; 
             letter-spacing: 1px; 
             margin-bottom: 5px;
+        }
+
+        /* Lista funkcionalnosti (Features) */
+        .pricing-card ul.features { flex-grow: 1; }
+        .pricing-card ul.features li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.4;
+        }
+        .pricing-card ul.features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: var(--cyan-glow);
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         /* CUSTOM SOLUTIONS BANNER */
@@ -302,10 +324,15 @@
             <div class="pricing-card">
                 <h3>Short-Form Spark</h3>
                 <div class="price">$15</div>
-                <ul>
+                <ul class="specs">
                     <li><strong>Base Duration</strong> Up to 15 sec</li>
                     <li><strong>Scaling Rule</strong> +$5 per every 3 sec</li>
-                    <li><strong>Maximum Price</strong> Cap at $35</li>
+                </ul>
+                <ul class="features">
+                    <li>Dynamic Captions</li>
+                    <li>Basic Cuts & Pacing</li>
+                    <li>Trending Audio sync</li>
+                    <li>1 Revision included</li>
                 </ul>
             </div>
             
@@ -313,30 +340,45 @@
                 <div class="popular-badge">Most Popular</div>
                 <h3>Social Media Pro</h3>
                 <div class="price">$40</div>
-                <ul>
+                <ul class="specs">
                     <li><strong>Base Duration</strong> Up to 60 sec</li>
                     <li><strong>Scaling Rule</strong> +$5 per every 10 sec</li>
-                    <li><strong>Maximum Price</strong> Cap at $60</li>
+                </ul>
+                <ul class="features">
+                    <li>Advanced Hook Creation</li>
+                    <li>Motion Graphics & VFX</li>
+                    <li>Sound Design & SFX</li>
+                    <li>2 Revisions included</li>
                 </ul>
             </div>
             
             <div class="pricing-card">
                 <h3>Content Creator</h3>
                 <div class="price">$65</div>
-                <ul>
+                <ul class="specs">
                     <li><strong>Base Duration</strong> Up to 5 min</li>
                     <li><strong>Scaling Rule</strong> +$5 per every 20 sec</li>
-                    <li><strong>Maximum Price</strong> Cap at $105</li>
+                </ul>
+                <ul class="features">
+                    <li>B-Roll Sourcing & Integration</li>
+                    <li>Color Grading (Cinematic)</li>
+                    <li>Advanced Audio Mixing</li>
+                    <li>2 Revisions included</li>
                 </ul>
             </div>
 
             <div class="pricing-card">
                 <h3>Long-Form Master</h3>
                 <div class="price">$110</div>
-                <ul>
+                <ul class="specs">
                     <li><strong>Base Duration</strong> Up to 30 min</li>
                     <li><strong>Scaling Rule</strong> +$5 per every 1 min</li>
-                    <li><strong>Maximum Price</strong> Cap at $150</li>
+                </ul>
+                <ul class="features">
+                    <li>Full Narrative Storytelling</li>
+                    <li>Premium Color Correction</li>
+                    <li>Complex Soundscapes</li>
+                    <li>3 Revisions included</li>
                 </ul>
             </div>
         </div>
