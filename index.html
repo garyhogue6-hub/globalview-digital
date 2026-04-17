@@ -26,16 +26,15 @@
             position: relative;
         }
 
-        /* AMBIENT BACKGROUND & GRID - Puni prazan prostor sa strane */
-        body::before {
-            content: '';
+        /* STABILNIJI AMBIJENT I MREŽA */
+        .bg-grid {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             background-image: 
-                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
             background-size: 50px 50px;
-            z-index: -2;
+            z-index: -10;
             pointer-events: none;
         }
 
@@ -43,7 +42,7 @@
             position: fixed;
             border-radius: 50%;
             filter: blur(150px);
-            z-index: -1;
+            z-index: -5;
             pointer-events: none;
         }
         .glow-left {
@@ -71,6 +70,7 @@
             text-transform: uppercase;
             opacity: 0.5;
             pointer-events: none;
+            z-index: 0;
         }
         .side-scroll-right {
             position: fixed;
@@ -82,6 +82,7 @@
             align-items: center;
             gap: 10px;
             opacity: 0.5;
+            z-index: 0;
         }
         .side-scroll-right span {
             color: var(--text-muted);
@@ -97,8 +98,9 @@
 
         /* GLASSMORPHISM HEADER & BIGGER LOGO */
         header { 
-            background: rgba(10, 10, 10, 0.6); 
+            background: rgba(10, 10, 10, 0.7); 
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 25px 50px; 
             display: flex;
             justify-content: space-between;
@@ -111,14 +113,14 @@
         
         .logo { 
             font-family: 'Montserrat', sans-serif; 
-            font-size: 2.6rem; /* Znatno povećano */
+            font-size: 2.6rem; 
             font-weight: 900; 
             text-transform: uppercase; 
             letter-spacing: 4px; 
             background: linear-gradient(90deg, #ffffff, var(--cyan-glow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(0, 229, 255, 0.4); /* Neonski odsjaj */
+            text-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
         }
 
         nav { display: flex; gap: 40px; }
@@ -143,6 +145,7 @@
             max-width: 1200px; 
             margin: 0 auto;
             text-align: center;
+            z-index: 10;
         }
 
         .hero h1 { 
@@ -193,6 +196,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
+            z-index: 10;
+            position: relative;
         }
 
         .process-text h2 {
@@ -212,66 +217,5 @@
         .timeline-ui {
             background: rgba(17, 17, 17, 0.8);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 20px;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            overflow: hidden;
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            color: #666;
-            font-size: 0.75rem;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .playhead {
-            position: absolute;
-            left: 35%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #ff2a2a;
-            z-index: 10;
-            box-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
-        }
-        .playhead::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -6px;
-            width: 0; 
-            height: 0; 
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 10px solid #ff2a2a;
-        }
-
-        .track {
-            height: 40px;
-            background: rgba(26, 26, 26, 0.6);
-            margin-bottom: 8px;
-            border-radius: 4px;
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.02);
-        }
-
-        .clip {
-            position: absolute;
-            height: 30px;
-            top: 4px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #fff;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
-        }
-
-        .clip.v1 { background: linear-gradient(90deg, #005f73, #0a9396); left: 5%; width:
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px
