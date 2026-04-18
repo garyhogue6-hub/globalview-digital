@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
-
         :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
         .glow-left, .glow-right { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; }
@@ -19,13 +17,11 @@
 
         header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
-        
         nav { display: flex; gap: 30px; }
         nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s, text-shadow 0.3s; }
         nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 
         .main-content { position: relative; z-index: 10; padding: 80px 20px 40px; max-width: 1200px; margin: 0 auto; }
-
         .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); margin-bottom: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
         .section-title span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
         .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1.2rem; max-width: 800px; margin: 0 auto 80px auto; }
@@ -44,7 +40,6 @@
         .value-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--text-main); }
         .value-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
 
-        /* FOUNDER BIO ZA MERCURY BANKU */
         .founder-bio { background: linear-gradient(145deg, rgba(0, 105, 148, 0.1), rgba(0, 229, 255, 0.05)); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 20px; padding: 50px; margin-bottom: 80px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
         .founder-bio h4 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: var(--text-main); margin-bottom: 20px; }
         .founder-bio p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; }
@@ -58,9 +53,8 @@
         .registry-details p { color: var(--text-main); font-size: 1rem; margin-bottom: 20px; }
         .registry-details p:last-child { margin-bottom: 0; }
 
-        /* NOVI FOOTER SA KARTICAMA */
         footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
-        .payment-icons { font-size: 2rem; margin-bottom: 20px; color: var(--text-muted); display: flex; justify-content: center; gap: 20px; }
+        .payment-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
         .payment-icons i { transition: color 0.3s; }
         .payment-icons i:hover { color: var(--cyan-glow); }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
