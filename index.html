@@ -35,4 +35,107 @@
         .btn { display: inline-block; background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); color: #000; padding: 18px 45px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1.5px; transition: transform 0.3s, box-shadow 0.3s; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
 
-        .process-section { padding: 80px 20px; max-
+        .process-section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .process-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; }
+        .process-text p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; }
+
+        .timeline-ui { background: #111111; border-radius: 12px; border: 1px solid #333; padding: 20px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8); overflow: hidden; }
+        .timeline-header { display: flex; justify-content: space-between; color: #777; font-size: 0.75rem; margin-bottom: 15px; font-weight: bold; }
+        .playhead { position: absolute; left: 35%; top: 0; bottom: 0; width: 2px; background: #ff2a2a; z-index: 10; }
+        .playhead::before { content: ''; position: absolute; top: 0; left: -6px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 10px solid #ff2a2a; }
+        .track { height: 40px; background: #1a1a1a; margin-bottom: 8px; border-radius: 4px; position: relative; border: 1px solid #222; }
+        .clip { position: absolute; height: 30px; top: 4px; border-radius: 4px; display: flex; align-items: center; padding: 0 10px; font-size: 0.7rem; font-weight: 600; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1); }
+        .clip.v1 { background: linear-gradient(90deg, #005f73, #0a9396); left: 5%; width: 45%; }
+        .clip.v2 { background: linear-gradient(90deg, #9b2226, #bb3e03); left: 25%; width: 25%; z-index: 2;}
+        .clip.a1 { background: linear-gradient(90deg, #2d6a4f, #40916c); left: 5%; width: 45%; }
+
+        .showcase { width: calc(100% - 40px); height: 450px; background: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover; border-radius: 20px; margin: 50px auto; max-width: 1100px; border: 1px solid #333; position: relative; }
+        .showcase-overlay { position: absolute; top:0; left:0; right:0; bottom:0; background: linear-gradient(to top, var(--bg-dark), transparent); border-radius: 20px; }
+
+        footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
+        .payment-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        .payment-icons i { transition: color 0.3s; }
+        .payment-icons i:hover { color: var(--cyan-glow); }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
+        footer a:hover { color: var(--cyan-glow); }
+
+        .side-text-left, .side-scroll-right { position: fixed; opacity: 0.3; pointer-events: none; z-index: 5; }
+        .side-text-left { left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; }
+        .side-scroll-right { right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .side-scroll-right span { color: var(--text-muted); font-size: 0.7rem; letter-spacing: 2px; writing-mode: vertical-rl; }
+        .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--cyan-glow), transparent); }
+
+        /* MOBILNI TELEFONI */
+        @media (max-width: 768px) {
+            header { padding: 15px; flex-direction: column; gap: 15px; }
+            .logo { font-size: 2rem; }
+            nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            nav a { font-size: 0.75rem; }
+            .hero { padding: 80px 20px; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1rem; }
+            .process-section { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .process-text h2 { font-size: 2.2rem; }
+            .showcase { height: 250px; }
+            .side-text-left, .side-scroll-right { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-left"></div><div class="glow-right"></div>
+    <div class="side-text-left">EST. 2026 / US LLC</div>
+    <div class="side-scroll-right"><span>SCROLL</span><div class="scroll-line"></div></div>
+
+    <header>
+        <div class="logo">GlobalView Digital</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <section class="hero">
+            <h1>Attention is the <br><span>New Currency</span></h1>
+            <p>We craft high-retention, visually stunning short-form content. From raw footage to viral masterpieces, we build digital assets that scale your brand and dominate the feed.</p>
+            <a href="pricing.html" class="btn">View Packages</a>
+        </section>
+
+        <section class="process-section">
+            <div class="process-text">
+                <h2>Engineered for Retention</h2>
+                <p>We don't just cut clips. We strategically pace every frame. Dynamic zoom-ins, seamless J-cuts, motion graphics, and elite sound design are layered to keep eyes glued to the screen.</p>
+            </div>
+            
+            <div class="timeline-ui">
+                <div class="timeline-header"><span>00:00:00:00</span><span>00:00:30:00</span></div>
+                <div class="playhead"></div>
+                <div class="track"><div class="clip v2">B-Roll / VFX</div></div>
+                <div class="track"><div class="clip v1">A-Roll (Main Camera)</div></div>
+                <div class="track"><div class="clip a1">Dialogue / Voiceover</div></div>
+            </div>
+        </section>
+
+        <div class="showcase"><div class="showcase-overlay"></div></div>
+
+        <footer>
+            <div class="payment-icons">
+                <i class="fa-brands fa-stripe"></i>
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-amex"></i>
+                <i class="fa-brands fa-apple-pay"></i>
+            </div>
+            <p style="margin-bottom: 10px; font-size: 0.85rem;">Guaranteed safe & secure checkout.</p>
+            <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
+            <p style="margin-top: 15px;">
+                <a href="terms.html">Terms of Service</a> | 
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="refund.html">Refund Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
