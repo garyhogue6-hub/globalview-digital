@@ -24,7 +24,6 @@
         nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s, text-shadow 0.3s; }
         nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 
-        /* KLJUČNA POPRAVKA - Drži sadržaj iznad pozadine */
         .main-content { position: relative; z-index: 10; }
 
         .hero { padding: 150px 20px 100px; max-width: 1100px; margin: 0 auto; text-align: center; }
@@ -49,10 +48,20 @@
         .clip.v2 { background: linear-gradient(90deg, #9b2226, #bb3e03); left: 25%; width: 25%; z-index: 2;}
         .clip.a1 { background: linear-gradient(90deg, #2d6a4f, #40916c); left: 5%; width: 45%; }
 
-        .showcase { width: calc(100% - 40px); height: 450px; background: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover; border-radius: 20px; margin: 50px auto; max-width: 1100px; border: 1px solid #333; position: relative; }
-        .showcase-overlay { position: absolute; top:0; left:0; right:0; bottom:0; background: linear-gradient(to top, var(--bg-dark), transparent); border-radius: 20px; }
+        /* NOVA PORTFOLIO SEKCIJA */
+        .portfolio-section { padding: 60px 20px 100px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .portfolio-section h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: var(--text-main); margin-bottom: 50px; text-transform: uppercase; }
+        .portfolio-section h2 span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
+        
+        .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .video-card { background: #000; border-radius: 20px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: all 0.4s; aspect-ratio: 9/16; }
+        .video-card:hover { transform: translateY(-10px); border-color: var(--cyan-glow); box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2); }
+        .video-card video { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+        .video-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 30px 20px 20px; text-align: left; }
+        .video-overlay h4 { color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 5px; }
+        .video-overlay p { color: var(--cyan-glow); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
 
-        footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
+        footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 40px; color: var(--text-muted); position: relative; z-index: 10; }
         .payment-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
         .payment-icons i { transition: color 0.3s; }
         .payment-icons i:hover { color: var(--cyan-glow); }
@@ -66,6 +75,9 @@
         .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--cyan-glow), transparent); }
 
         /* MOBILNI TELEFONI */
+        @media (max-width: 900px) {
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             header { padding: 15px; flex-direction: column; gap: 15px; }
             .logo { font-size: 2rem; }
@@ -76,7 +88,8 @@
             .hero p { font-size: 1rem; }
             .process-section { grid-template-columns: 1fr; gap: 40px; text-align: center; }
             .process-text h2 { font-size: 2.2rem; }
-            .showcase { height: 250px; }
+            .video-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .portfolio-section h2 { font-size: 2.2rem; }
             .side-text-left, .side-scroll-right { display: none; }
         }
     </style>
@@ -118,7 +131,38 @@
             </div>
         </section>
 
-        <div class="showcase"><div class="showcase-overlay"></div></div>
+        <section class="portfolio-section">
+            <h2>Our Recent <span>Edits</span></h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <video autoplay loop muted playsinline>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-man-dancing-under-neon-lights-39686-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h4>Neon Dynamic Promo</h4>
+                        <p>Music / Brand Promo</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video autoplay loop muted playsinline>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-girl-recording-a-vlog-on-her-smartphone-in-a-studio-34440-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h4>Creator Vlog Cut</h4>
+                        <p>TikTok / Reels Content</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video autoplay loop muted playsinline>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-4174-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h4>Tech Showcase</h4>
+                        <p>Corporate / B2B Shorts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <footer>
             <div class="payment-icons">
