@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | GlobalView Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
         :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
@@ -43,22 +44,29 @@
         .btn { display: inline-block; background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); color: #000; padding: 18px 45px; border: none; cursor: pointer; border-radius: 8px; font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1.5px; transition: transform 0.3s, box-shadow 0.3s; width: 100%; margin-top: 10px; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
 
-        footer { border-top: 1px solid rgba(255,255,255,0.05); text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); }
+        footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
+        .payment-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        .payment-icons i { transition: color 0.3s; }
+        .payment-icons i:hover { color: var(--cyan-glow); }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
         footer a:hover { color: var(--cyan-glow); }
 
-        /* MOBILNI TELEFONI */
+        .side-text-left { position: fixed; left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; opacity: 0.3; pointer-events: none; z-index: 5; }
+
         @media (max-width: 768px) {
             header { padding: 15px; flex-direction: column; gap: 15px; }
             .logo { font-size: 2rem; }
             nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
             .section-title { font-size: 2.5rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 40px; padding: 30px 20px; }
+            .side-text-left { display: none; }
         }
     </style>
 </head>
 <body>
     <div class="glow-left"></div><div class="glow-right"></div>
+    <div class="side-text-left">Let's Connect</div>
+
     <header>
         <div class="logo">GlobalView Digital</div>
         <nav>
@@ -104,8 +112,20 @@
     </div>
 
     <footer>
+        <div class="payment-icons">
+            <i class="fa-brands fa-stripe"></i>
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-cc-amex"></i>
+            <i class="fa-brands fa-apple-pay"></i>
+        </div>
+        <p style="margin-bottom: 10px; font-size: 0.85rem;">Guaranteed safe & secure checkout.</p>
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 15px;"><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+        <p style="margin-top: 15px;">
+            <a href="terms.html">Terms of Service</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="refund.html">Refund Policy</a>
+        </p>
     </footer>
 </body>
 </html>
