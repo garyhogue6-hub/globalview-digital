@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
-
         :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
         .glow-left, .glow-right { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; }
@@ -18,41 +16,39 @@
         .glow-right { bottom: 10%; right: -10vw; width: 30vw; height: 30vw; background: var(--cyan-glow); opacity: 0.15; }
 
         header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
         
         nav { display: flex; gap: 30px; }
         nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s, text-shadow 0.3s; }
         nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
 
-        .about-section { padding: 120px 20px 80px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .about-text h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; }
-        .about-text h1 span { color: var(--cyan-glow); }
-        .about-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 25px; }
+        .about-content { max-width: 900px; margin: 100px auto; padding: 0 20px; position: relative; z-index: 10; }
+        .hero-text { text-align: center; margin-bottom: 80px; }
+        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
+        .hero-text h1 span { color: var(--cyan-glow); }
+        .hero-text p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.8; }
 
-        .about-image { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-        .about-image img { width: 100%; display: block; filter: grayscale(20%) contrast(110%); }
-
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-        .stat-item h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: var(--cyan-glow); }
-        .stat-item p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .registry-container { background: rgba(17, 17, 17, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 50px; display: flex; gap: 40px; align-items: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .registry-text { flex: 1; }
+        .registry-text h4 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--cyan-glow); }
+        .registry-details { flex: 1; background: rgba(255, 255, 255, 0.02); padding: 30px; border-radius: 15px; border-left: 3px solid var(--cyan-glow); }
+        .registry-details h5 { text-transform: uppercase; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 5px; margin-top: 15px; }
+        .registry-details h5:first-child { margin-top: 0; }
+        .registry-details p { font-weight: 600; font-size: 1rem; }
 
         footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
         footer a:hover { color: var(--cyan-glow); }
 
-        .side-text-left { position: fixed; left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; opacity: 0.3; pointer-events: none; z-index: 5; }
-
         @media (max-width: 768px) {
-            .about-section { grid-template-columns: 1fr; text-align: center; padding-top: 60px; }
-            .about-text h1 { font-size: 2.8rem; }
             header { padding: 15px; flex-direction: column; gap: 15px; }
-            .side-text-left { display: none; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .registry-container { flex-direction: column; padding: 30px; }
         }
     </style>
 </head>
 <body>
     <div class="glow-left"></div><div class="glow-right"></div>
-    <div class="side-text-left">GLOBALVIEW DIGITAL LLC</div>
 
     <header>
         <div class="logo">GlobalView Digital</div>
@@ -64,33 +60,32 @@
         </nav>
     </header>
 
-    <div class="main-content">
-        <section class="about-section">
-            <div class="about-text">
-                <h1>Beyond the <span>Edit</span></h1>
-                <p>GlobalView Digital LLC isn't just a production house. We are a results-driven agency focused on the psychology of retention.</p>
-                <p>Based in Wyoming and operating globally, we specialize in high-end post-production for creators and brands who understand that every second of video is an opportunity to win or lose an audience.</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-item"><h3>100+</h3><p>Videos Delivered</p></div>
-                    <div class="stat-item"><h3>24/7</h3><p>Global Support</p></div>
-                    <div class="stat-item"><h3>4K</h3><p>Master Quality</p></div>
-                </div>
-            </div>
-            
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Studio Setup">
-            </div>
-        </section>
+    <div class="about-content">
+        <div class="hero-text">
+            <h1>Beyond The <span>Edit</span></h1>
+            <p>GlobalView Digital LLC isn't just a production house. We are a results-driven agency focused on the psychology of retention. We bridge the gap between stunning visual aesthetics and high-converting digital strategy.</p>
+        </div>
 
-        <footer>
-            <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-            <p style="margin-top: 15px;">
-                <a href="terms.html">Terms of Service</a> | 
-                <a href="privacy.html">Privacy Policy</a> | 
-                <a href="refund.html">Refund Policy</a>
-            </p>
-        </footer>
+        <div class="registry-container">
+            <div class="registry-text">
+                <h4>A Trusted US Entity</h4>
+                <p>GlobalView Digital operates globally, but is anchored by strict US business standards. Your total satisfaction is our ultimate metric for success.</p>
+            </div>
+            <div class="registry-details">
+                <h5>Entity Type</h5><p>Registered US LLC</p>
+                <h5>Headquarters</h5><p>30 N Gould St Ste R<br>Sheridan, WY 82801</p>
+                <h5>Operations</h5><p>Remote / Global Clientele</p>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
+        <p style="margin-top: 15px;">
+            <a href="terms.html">Terms of Service</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="refund.html">Refund Policy</a>
+        </p>
+    </footer>
 </body>
 </html>
