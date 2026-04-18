@@ -9,26 +9,22 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
         :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
         
-        .glow-left, .glow-right { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; }
-        .glow-left { top: 20%; left: -10vw; width: 40vw; height: 40vw; background: var(--sea-blue); opacity: 0.3; }
-        .glow-right { bottom: 10%; right: -10vw; width: 30vw; height: 30vw; background: var(--cyan-glow); opacity: 0.15; }
-
         header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 1000; }
         .logo { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         nav { display: flex; gap: 30px; }
         nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s; }
         nav a:hover { color: var(--cyan-glow); }
 
-        .main-content { position: relative; z-index: 10; max-width: 900px; margin: 80px auto; padding: 0 20px; background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .main-content h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cyan-glow); margin-bottom: 20px; text-transform: uppercase; }
-        .main-content p.date { color: var(--text-muted); margin-bottom: 40px; font-size: 0.9rem; }
-        .main-content h2 { font-size: 1.5rem; color: var(--text-main); margin-top: 40px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .main-content p, .main-content ul { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
-        .main-content ul { padding-left: 20px; }
-        .main-content ul li { margin-bottom: 10px; }
-        .main-content strong { color: var(--text-main); }
+        .legal-content { max-width: 900px; margin: 80px auto; padding: 0 20px; background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .legal-content h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--cyan-glow); margin-bottom: 20px; text-transform: uppercase; }
+        .legal-content p.date { color: var(--text-muted); margin-bottom: 40px; font-size: 0.9rem; }
+        .legal-content h2 { font-size: 1.5rem; color: var(--text-main); margin-top: 40px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .legal-content p, .legal-content ul { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
+        .legal-content ul { padding-left: 20px; }
+        .legal-content ul li { margin-bottom: 10px; }
+        .legal-content strong { color: var(--text-main); }
 
         footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
         .payment-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
@@ -41,8 +37,8 @@
             header { flex-direction: column; gap: 15px; padding: 15px; }
             .logo { font-size: 2rem; }
             nav { flex-wrap: wrap; justify-content: center; }
-            .main-content h1 { font-size: 2rem; }
-            .main-content { padding: 30px 20px; margin: 40px 20px; }
+            .legal-content h1 { font-size: 2rem; }
+            .legal-content { padding: 30px 20px; margin: 40px 20px; }
         }
     </style>
 </head>
@@ -58,11 +54,11 @@
         </nav>
     </header>
 
-    <div class="main-content">
+    <div class="legal-content">
         <h1>Privacy Policy</h1>
         <p class="date">Last Updated: April 18, 2026</p>
 
-        <p>GlobalView Digital LLC ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our video editing services.</p>
+        <p>GlobalView Digital LLC ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our video editing services, regardless of your geographic location.</p>
 
         <h2>1. Information We Collect</h2>
         <p>We may collect the following types of information when you interact with us:</p>
@@ -86,7 +82,18 @@
         <h2>4. Sharing of Information</h2>
         <p><strong>We do not sell, rent, or trade your personal information to third parties.</strong> We may share your data only with trusted third-party service providers (payment gateways, cloud hosting) necessary to conduct our business.</p>
 
-        <h2>5. Contact Us</h2>
+        <h2>5. Global Privacy Rights (Including GDPR & CCPA)</h2>
+        <p>Because we serve a global clientele, we operate in compliance with major international data protection laws, including the European Union's General Data Protection Regulation (GDPR), UK-GDPR, and the California Consumer Privacy Act (CCPA). Depending on your location, you have the right to:</p>
+        <ul>
+            <li><strong>Access:</strong> Request copies of your personal data.</li>
+            <li><strong>Rectification:</strong> Request that we correct any inaccurate or incomplete information.</li>
+            <li><strong>Erasure (Right to be Forgotten):</strong> Request that we erase your personal data, under certain conditions.</li>
+            <li><strong>Restrict Processing:</strong> Request that we restrict the processing of your data.</li>
+            <li><strong>Data Portability:</strong> Request that we transfer the data we have collected to another organization, or directly to you.</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us at the email address provided below. We will respond to your request within the legally required timeframe.</p>
+
+        <h2>6. Contact Us</h2>
         <p>If you have any questions or concerns regarding this Privacy Policy, please contact us at:<br>
         <strong>Email:</strong> support@globalviewdigital.com<br>
         <strong>Address:</strong> 30 N Gould St Ste R, Sheridan, WY 82801, United States</p>
