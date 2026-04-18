@@ -7,65 +7,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+
         :root { --bg-dark: #0a0a0a; --sea-blue: #006994; --cyan-glow: #00e5ff; --text-main: #f8f9fa; --text-muted: #a0aec0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
         .glow-left, .glow-right { position: fixed; border-radius: 50%; filter: blur(150px); z-index: -1; pointer-events: none; }
-        .glow-left { top: 20%; left: -10vw; width: 40vw; height: 40vw; background: var(--sea-blue); opacity: 0.3; }
+        .glow-left { top: 10%; left: -10vw; width: 40vw; height: 40vw; background: var(--sea-blue); opacity: 0.3; }
         .glow-right { bottom: 10%; right: -10vw; width: 30vw; height: 30vw; background: var(--cyan-glow); opacity: 0.15; }
 
         header { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ffffff, var(--cyan-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
         nav { display: flex; gap: 30px; }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s, text-shadow 0.3s; }
-        nav a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s; }
+        nav a:hover { color: var(--cyan-glow); }
 
-        .main-content { position: relative; z-index: 10; padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Montserrat', sans-serif; text-align: center; font-size: 3.5rem; color: var(--text-main); margin-bottom: 60px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
-        .section-title span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
+        .contact-hero { padding: 100px 20px 60px; text-align: center; }
+        .contact-hero h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; text-transform: uppercase; margin-bottom: 15px; }
+        .contact-hero h1 span { color: var(--cyan-glow); text-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
+        .contact-hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .contact-info h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 10px; color: var(--text-main); }
-        .contact-info > p { color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; }
-        .info-block { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid rgba(0, 229, 255, 0.3); }
-        .info-block h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cyan-glow); margin-bottom: 8px; }
-        .info-block p { color: var(--text-main); line-height: 1.6; }
-        .info-block.emails a { color: var(--text-main); text-decoration: none; transition: color 0.3s, text-shadow 0.3s; }
-        .info-block.emails a:hover { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
-        .info-block.emails strong { color: var(--text-muted); font-weight: 400; margin-right: 10px; }
+        .contact-grid { max-width: 1100px; margin: 0 auto 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px; }
+        
+        .contact-card { background: rgba(17, 17, 17, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); }
+        .contact-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 25px; color: var(--cyan-glow); display: flex; align-items: center; gap: 10px; }
+        
+        .info-item { margin-bottom: 25px; }
+        .info-item label { display: block; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .info-item p { font-size: 1.1rem; font-weight: 600; }
+        .info-item a { color: var(--text-main); text-decoration: none; transition: color 0.3s; }
+        .info-item a:hover { color: var(--cyan-glow); }
 
-        .contact-form { display: flex; flex-direction: column; gap: 20px; }
-        .contact-form input, .contact-form textarea { width: 100%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px 20px; color: var(--text-main); font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s; }
-        .contact-form textarea { resize: vertical; min-height: 150px; }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--cyan-glow); box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); background: rgba(0, 0, 0, 0.8); }
+        .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--cyan-glow); color: var(--cyan-glow); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-top: 10px; }
+        .dot { width: 8px; height: 8px; background: var(--cyan-glow); border-radius: 50%; box-shadow: 0 0 10px var(--cyan-glow); animation: pulse 1.5s infinite; }
 
-        .btn { display: inline-block; background: linear-gradient(45deg, var(--sea-blue), var(--cyan-glow)); color: #000; padding: 18px 45px; border: none; cursor: pointer; border-radius: 8px; font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1.5px; transition: transform 0.3s, box-shadow 0.3s; width: 100%; margin-top: 10px; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3); }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 
-        footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; margin-top: 80px; color: var(--text-muted); position: relative; z-index: 10; }
-        .payment-icons { font-size: 2rem; margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
-        .payment-icons i { transition: color 0.3s; }
-        .payment-icons i:hover { color: var(--cyan-glow); }
+        footer { border-top: 1px solid #222; text-align: center; padding: 40px 20px; color: var(--text-muted); position: relative; z-index: 10; }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.85rem; transition: color 0.3s;}
         footer a:hover { color: var(--cyan-glow); }
 
-        .side-text-left { position: fixed; left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: var(--text-muted); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; opacity: 0.3; pointer-events: none; z-index: 5; }
-
         @media (max-width: 768px) {
+            .contact-hero h1 { font-size: 2.5rem; }
+            .contact-grid { grid-template-columns: 1fr; }
             header { padding: 15px; flex-direction: column; gap: 15px; }
-            .logo { font-size: 2rem; }
-            nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            .section-title { font-size: 2.5rem; }
-            .contact-grid { grid-template-columns: 1fr; gap: 40px; padding: 30px 20px; }
-            .side-text-left { display: none; }
         }
     </style>
 </head>
 <body>
     <div class="glow-left"></div><div class="glow-right"></div>
-    <div class="side-text-left">Let's Connect</div>
 
     <header>
         <div class="logo">GlobalView Digital</div>
@@ -78,54 +70,50 @@
     </header>
 
     <div class="main-content">
-        <h2 class="section-title">Get in <span>Touch</span></h2>
-        
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Let's Create Together</h3>
-                <p>Ready to scale your content and dominate the feed? Reach out to our team directly or send us a message below.</p>
+        <section class="contact-hero">
+            <h1>Let's <span>Connect</span></h1>
+            <p>Ready to scale your content? Our team is available for high-level editing inquiries and custom production requests.</p>
+        </section>
 
-                <div class="info-block emails">
-                    <h4>Direct Contact</h4>
-                    <p><strong>General Inquiries:</strong> <br><a href="mailto:contact@globalviewdigital.com">contact@globalviewdigital.com</a></p>
-                    <p style="margin-top: 10px;"><strong>Client Support:</strong> <br><a href="mailto:support@globalviewdigital.com">support@globalviewdigital.com</a></p>
+        <section class="contact-grid">
+            <div class="contact-card">
+                <h3><i class="fas fa-envelope-open-text"></i> Business Inquiries</h3>
+                <div class="info-item">
+                    <label>General Support</label>
+                    <p><a href="mailto:contact@globalviewdigital.com">contact@globalviewdigital.com</a></p>
                 </div>
-
-                <div class="info-block">
-                    <h4>Business Hours (EST)</h4>
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p>Saturday: 10:00 AM - 2:00 PM</p>
-                    <p>Sunday: Closed</p>
+                <div class="info-item">
+                    <label>Office Address</label>
+                    <p>30 N Gould St, Ste R<br>Sheridan, WY 82801, USA</p>
                 </div>
+                <div class="status-badge"><div class="dot"></div> Support Online</div>
             </div>
 
-            <div class="contact-form-wrapper">
-                <form class="contact-form" action="#" method="POST">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email Address" required>
-                    <input type="text" placeholder="Subject / Project Type">
-                    <textarea placeholder="Tell us about your project..." required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+            <div class="contact-card">
+                <h3><i class="fas fa-clock"></i> Response Times</h3>
+                <div class="info-item">
+                    <label>Existing Clients</label>
+                    <p>Priority Support (Under 4 hours)</p>
+                </div>
+                <div class="info-item">
+                    <label>New Inquiries</label>
+                    <p>24 - 48 Business Hours</p>
+                </div>
+                <div class="info-item">
+                    <label>Operating Hours</label>
+                    <p>Monday — Friday | 09:00 - 18:00 EST</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
+            <p style="margin-top: 15px;">
+                <a href="terms.html">Terms of Service</a> | 
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="refund.html">Refund Policy</a>
+            </p>
+        </footer>
     </div>
-
-    <footer>
-        <div class="payment-icons">
-            <i class="fa-brands fa-stripe"></i>
-            <i class="fa-brands fa-cc-visa"></i>
-            <i class="fa-brands fa-cc-mastercard"></i>
-            <i class="fa-brands fa-cc-amex"></i>
-            <i class="fa-brands fa-apple-pay"></i>
-        </div>
-        <p style="margin-bottom: 10px; font-size: 0.85rem;">Guaranteed safe & secure checkout.</p>
-        <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
-        <p style="margin-top: 15px;">
-            <a href="terms.html">Terms of Service</a> | 
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="refund.html">Refund Policy</a>
-        </p>
-    </footer>
 </body>
 </html>
