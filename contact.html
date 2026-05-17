@@ -67,10 +67,9 @@
     <header>
         <div class="logo">GlobalView Digital</div>
         <nav>
-            <a href="/">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/pricing">Pricing</a>
-            <a href="/contact">Contact Us</a>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact Us</a>
         </nav>
     </header>
 
@@ -107,11 +106,21 @@
             </div>
 
             <div class="contact-form-wrapper">
-                <form class="contact-form" action="#" method="POST">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email Address" required>
-                    <input type="text" placeholder="Subject / Project Type">
-                    <textarea placeholder="Tell us about your project..." required></textarea>
+                <!-- Integrisan Web3Forms akcioni link -->
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    
+                    <!-- Skriveni API ključ -->
+                    <input type="hidden" name="access_key" value="8259e1c2-309d-455b-b35b-153257cdb510">
+                    
+                    <!-- Spam zaštita (Honeypot) -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <!-- Dodati 'name' atributi na poljima kako bi servis ispravno mapirao podatke u mejlu -->
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email Address" required>
+                    <input type="text" name="subject" placeholder="Subject / Project Type">
+                    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+                    
                     <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
@@ -121,9 +130,9 @@
     <footer>
         <p>&copy; 2026 GlobalView Digital LLC. All rights reserved.</p>
         <p style="margin-top: 15px;">
-            <a href="/terms">Terms of Service</a> | 
-            <a href="/privacy">Privacy Policy</a> | 
-            <a href="/refund">Refund Policy</a>
+            <a href="terms.html">Terms of Service</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="refund.html">Refund Policy</a>
         </p>
     </footer>
 </body>
